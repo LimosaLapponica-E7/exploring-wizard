@@ -5,23 +5,37 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     
-    [SerializeField] private Rigidbody2D playerBody;
-    public float moveSpeed = 5f;
-    public Animator animator;
+    Rigidbody2D rb;
+    [SerializeField] private float moveSpeed = 4;
+    float speedLimiter = 0.7f;
+    float inputHorizontal;
+    float inputVertical;
 
     Vector2 movement;
-    void Update()
+    void Start()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
-   /*     animator.SetFloat("Horizonatal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
-        animator.SetFloat("Speed", movement.sqrMagnitude);*/
+        rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
-    private void FixedUpdate()
+    void Update()
     {
-        playerBody.MovePosition(playerBody.position + movement * moveSpeed * Time.fixedDeltaTime);
+        inputHorizontal = Input.GetAxisRaw("Vertical");
+        inputVertical = Input.GetAxisRaw("Horizontal");
+    }
+    void FixedUpdate()
+    {
+        if (inputHorizontal != 0 || inputVertical != 0 )
+        {
+            if (inputHorizontal != 0 && inputVertical != 0)
+            {
+                inputHorizontal *= speedLimiter;
+                inputVertical *= speedLimiter;
+            }
+            rb.velocity = new Vector2(inputHorizontal * moveSpeed, inputHorizontal * moveSpeed);
+        }
+        else
+        {
+            rb.velocity = new Vector2(0f, 0f);
+        }
     }
 }
