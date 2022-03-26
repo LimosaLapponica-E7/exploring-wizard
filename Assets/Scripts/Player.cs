@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     
     Rigidbody2D rb;
-    [SerializeField] private float moveSpeed = 4;
+    [SerializeField] private float moveSpeed = 4f;
     float speedLimiter = 0.7f;
     float inputHorizontal;
     float inputVertical;
@@ -19,8 +19,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        inputHorizontal = Input.GetAxisRaw("Vertical");
-        inputVertical = Input.GetAxisRaw("Horizontal");
+        inputHorizontal = Input.GetAxisRaw("Horizontal");
+        inputVertical = Input.GetAxisRaw("Vertical");
     }
     void FixedUpdate()
     {
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
                 inputHorizontal *= speedLimiter;
                 inputVertical *= speedLimiter;
             }
-            rb.velocity = new Vector2(inputHorizontal * moveSpeed, inputHorizontal * moveSpeed);
+            rb.velocity = new Vector2(inputHorizontal * moveSpeed, inputVertical * moveSpeed);
         }
         else
         {
