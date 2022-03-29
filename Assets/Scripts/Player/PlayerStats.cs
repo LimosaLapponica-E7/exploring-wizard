@@ -11,6 +11,8 @@ public class PlayerStats : MonoBehaviour
     public float health;
     public float maxHealth;
 
+    public int gold;
+    public int potion;
 
     // Start is called before the first frame update
     void Start()
