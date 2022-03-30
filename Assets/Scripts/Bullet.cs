@@ -8,13 +8,17 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name != "Player")
+        if (collision.gameObject.name != "Player")
         {
             if(collision.GetComponent<EnemyRecieveDamage>() != null)
             {
                 collision.GetComponent<EnemyRecieveDamage>().DealDamage(damage);
             }
-            Destroy(gameObject);
+            else
+            {
+                Destroy(gameObject);
+            }
+          
         }
     }
 }

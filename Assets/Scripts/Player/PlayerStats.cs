@@ -6,7 +6,7 @@ public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats playerStats;
 
-    public GameObject player;
+    public GameObject Player;
 
     public float health;
     public float maxHealth;
