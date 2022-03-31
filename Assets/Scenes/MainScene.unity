@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657832, g: 0.49641222, b: 0.57481664, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1141,9 +1141,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 5743570707905604558, guid: cc2d6fd0e41326346a35b4c477c822fb, type: 3}
+  spell: {fileID: 0}
   minDamage: 3
   maxDamage: 5
   projectileForce: 10
+  spellForce: 5
 --- !u!114 &1295754193
 MonoBehaviour:
   m_ObjectHideFlags: 0
