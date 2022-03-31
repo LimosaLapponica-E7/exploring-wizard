@@ -14,7 +14,7 @@ public class Spell : MonoBehaviour
     public float spellForce;
 
     private float timesincespell = 0.0f;
-    private float secondspershot = 0.2f;  
+    private float secondspershot = 0.2f;
 
     // Update is called once per frame
     void Update()
@@ -26,12 +26,13 @@ public class Spell : MonoBehaviour
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 myPos = transform.position;
             Vector2 direction = (mousePos - myPos).normalized;
-            Fire(direction * projectileForce);
-          //  spell.GetComponent<Bullet>().damage = Random.Range(minDamage, maxDamage);
+            FireProjectile(direction * projectileForce);
+            //  spell.GetComponent<Bullet>().damage = Random.Range(minDamage, maxDamage);
         }
 
         //spells, you can aim these more easily
-        if (timesincespell > secondspershot){
+        if (timesincespell > secondspershot)
+        {
             if (Input.GetKeyDown("right"))
             {
                 GameObject spellRight = Instantiate(spell, transform.position, Quaternion.identity);
@@ -45,37 +46,46 @@ public class Spell : MonoBehaviour
                 timesincespell = 0;
             }
 
-        if(Input.GetKeyDown("right"))
-        {
-           Fire(new Vector2(spellForce, 0));
+            if (Input.GetKeyDown("right"))
+            {
+                Fire(new Vector2(spellForce, 0));
+            }
+            if (Input.GetKeyDown("left"))
+            {
+                Fire(new Vector2(spellForce * -1, 0));
+            }
+
+            if (Input.GetKeyDown("up"))
+            {
+                Fire(new Vector2(0, spellForce));
+            }
+
+            if (Input.GetKeyDown("down"))
+            {
+                Fire(new Vector2(0, spellForce * -1));
+            }
+
         }
-        if (Input.GetKeyDown("left"))
+
+        void Fire(Vector2 direction)
         {
-          Fire(new Vector2(spellForce * -1, 0));
+            GameObject projectileInstance = Instantiate(spell, transform.position, Quaternion.identity);
+            projectileInstance.GetComponent<Rigidbody2D>().velocity = direction;
+            StartCoroutine(Expire(projectileInstance, 3f));
         }
 
-        if (Input.GetKeyDown("up"))
+        void FireProjectile(Vector2 direction)
         {
-            Fire(new Vector2(0, spellForce));
+            GameObject projectileInstance = Instantiate(projectile, transform.position, Quaternion.identity);
+            projectileInstance.GetComponent<Rigidbody2D>().velocity = direction;
+            StartCoroutine(Expire(projectileInstance, 3f));
         }
 
-        if (Input.GetKeyDown("down"))
+        IEnumerator Expire(GameObject toDestroy, float seconds)
         {
-           Fire(new Vector2(0, spellForce * -1));
+            yield return new WaitForSeconds(seconds);
+            Destroy(toDestroy);
         }
-
-    }
-
-    void Fire(Vector2 direction) {
-        GameObject projectileInstance = Instantiate(projectile, transform.position, Quaternion.identity);
-        projectileInstance.GetComponent<Rigidbody2D>().velocity = direction;
-        StartCoroutine(Expire(projectileInstance, 3f));
-    }
-
-     IEnumerator Expire(GameObject toDestroy, float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        Destroy(toDestroy);
     }
 }
 
