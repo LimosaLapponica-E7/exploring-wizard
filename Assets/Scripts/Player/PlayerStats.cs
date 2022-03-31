@@ -29,7 +29,7 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = maxHealth;
+
     }
 
     public void dealDamage(float damage)
@@ -56,7 +56,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (health <= 0)
         {
-            gameObject.SetActive(false);
+            Player.SetActive(false);
         }
     }
 
