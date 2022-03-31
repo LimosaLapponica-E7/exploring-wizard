@@ -11,6 +11,7 @@ public class EnemyMovementTowardPlayer : MonoBehaviour
     public float moveSpeed = 5f;
     private Rigidbody2D rb;
     private Vector2 movement;
+    private SpriteRenderer spriteRenderer;
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
@@ -19,11 +20,18 @@ public class EnemyMovementTowardPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        spriteRenderer = this.GetComponent<SpriteRenderer>();
         Vector3 direction = player.position - transform.position;
         float angle = Mathf.Atan(direction.x) * Mathf.Rad2Deg;
-        rb.rotation = angle;
-        direction.Normalize();
         movement = direction;
+        if(direction.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
+        }
     }
 
     private void FixedUpdate()
