@@ -11,6 +11,13 @@ public class Player : MonoBehaviour
     float inputHorizontal;
     float inputVertical;
 
+    public static GameObject player;
+
+    void Awake()
+    {
+        instance = this;
+    }
+
     Vector2 movement;
     void Start()
     {
