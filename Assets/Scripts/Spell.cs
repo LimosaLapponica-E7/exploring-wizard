@@ -19,11 +19,10 @@ public class Spell : MonoBehaviour
         //reverse projectile
         if (Input.GetKeyDown("space")) //GetKeyDown instead of GetKey so that you have to perform a full press
         {
-            GameObject projectileRear = Instantiate(projectile, transform.position, Quaternion.identity);
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 myPos = transform.position;
             Vector2 direction = (mousePos - myPos).normalized;
-            projectileRear.GetComponent<Rigidbody2D>().velocity = direction * projectileForce;
+            Fire(direction * projectileForce);
           //  spell.GetComponent<Bullet>().damage = Random.Range(minDamage, maxDamage);
         }
 
@@ -31,27 +30,35 @@ public class Spell : MonoBehaviour
 
         if(Input.GetKeyDown("right"))
         {
-            GameObject spellRight = Instantiate(projectile, transform.position, Quaternion.identity);
-            spellRight.GetComponent<Rigidbody2D>().velocity = new Vector2(spellForce, 0);
+           Fire(new Vector2(spellForce, 0));
         }
         if (Input.GetKeyDown("left"))
         {
-            GameObject spellLeft = Instantiate(projectile, transform.position, Quaternion.identity);
-            spellLeft.GetComponent<Rigidbody2D>().velocity = new Vector2(spellForce * -1, 0);
+          Fire(new Vector2(spellForce * -1, 0));
         }
 
         if (Input.GetKeyDown("up"))
         {
-            GameObject spellUp = Instantiate(projectile, transform.position, Quaternion.identity);
-            spellUp.GetComponent<Rigidbody2D>().velocity = new Vector2(0, spellForce);
+            Fire(new Vector2(0, spellForce));
         }
 
         if (Input.GetKeyDown("down"))
         {
-            GameObject spellDown = Instantiate(projectile, transform.position, Quaternion.identity);
-            spellDown.GetComponent<Rigidbody2D>().velocity = new Vector2(0, spellForce * -1);
+           Fire(new Vector2(0, spellForce * -1));
         }
 
+    }
+
+    void Fire(Vector2 direction) {
+        GameObject projectileInstance = Instantiate(projectile, transform.position, Quaternion.identity);
+        projectileInstance.GetComponent<Rigidbody2D>().velocity = direction;
+        StartCoroutine(Expire(projectileInstance, 3f));
+    }
+
+     IEnumerator Expire(GameObject toDestroy, float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        Destroy(toDestroy);
     }
 }
 
