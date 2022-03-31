@@ -38,7 +38,7 @@ public class EnemyRecieveDamage : MonoBehaviour
     {
         if (health <= 0)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             Instantiate(lootDrop, transform.position, Quaternion.identity);
         }
     }
