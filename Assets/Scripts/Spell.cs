@@ -33,36 +33,28 @@ public class Spell : MonoBehaviour
         //spells, you can aim these more easily
         if (timesincespell > secondspershot)
         {
-            if (Input.GetKeyDown("right"))
-            {
-                GameObject spellRight = Instantiate(spell, transform.position, Quaternion.identity);
-                spellRight.GetComponent<Rigidbody2D>().velocity = new Vector2(spellForce, 0);
-                timesincespell = 0;
-            }
-            if (Input.GetKeyDown("left"))
-            {
-                GameObject spellLeft = Instantiate(spell, transform.position, Quaternion.identity);
-                spellLeft.GetComponent<Rigidbody2D>().velocity = new Vector2(spellForce * -1, 0);
-                timesincespell = 0;
-            }
 
             if (Input.GetKeyDown("right"))
             {
                 Fire(new Vector2(spellForce, 0));
+                timesincespell = 0;
             }
             if (Input.GetKeyDown("left"))
             {
                 Fire(new Vector2(spellForce * -1, 0));
+                timesincespell = 0;
             }
 
             if (Input.GetKeyDown("up"))
             {
                 Fire(new Vector2(0, spellForce));
+                timesincespell = 0;
             }
 
             if (Input.GetKeyDown("down"))
             {
                 Fire(new Vector2(0, spellForce * -1));
+                timesincespell = 0;
             }
 
         }
