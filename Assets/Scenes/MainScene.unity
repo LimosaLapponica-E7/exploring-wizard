@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657832, g: 0.49641222, b: 0.57481664, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -950,6 +950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTransform: {fileID: 794472336}
   target: {fileID: 1295754191}
+  targetObject: {fileID: 1295754186}
 --- !u!1 &1162049890
 GameObject:
   m_ObjectHideFlags: 0
@@ -995,8 +996,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1295754186}
   health: 15
-  maxHealth: 0
-  gold: 0
+  maxHealth: 15
+  gold: 5
   potion: 0
 --- !u!1 &1222427502 stripped
 GameObject:
@@ -1013,11 +1014,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1295754191}
   - component: {fileID: 1295754190}
-  - component: {fileID: 1295754187}
   - component: {fileID: 1295754192}
   - component: {fileID: 1295754188}
   - component: {fileID: 1295754189}
   - component: {fileID: 1295754193}
+  - component: {fileID: 1295754187}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1038,6 +1039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
+  playerBody: {fileID: 1295754189}
 --- !u!61 &1295754188
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1048,7 +1050,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1181,7 +1183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 15
-  bullet: {fileID: 0}
+  bullet: {fileID: 1913041697139890260, guid: ee695dd23c8648a4a9d13749f3e5e366, type: 3}
 --- !u!1 &1352203582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1575,6 +1577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentObject: 0
   pickupQuantity: 10
+  item: {fileID: 1585709648}
 --- !u!50 &1585709652
 Rigidbody2D:
   serializedVersion: 4
@@ -1606,7 +1609,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1900,6 +1903,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5317045560712821941, guid: 7eaf4b7dc883285418edc82749cb6131, type: 3}
       propertyPath: m_Name
+      value: Slime
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317045560712821941, guid: 7eaf4b7dc883285418edc82749cb6131, type: 3}
+      propertyPath: m_TagString
       value: Slime
       objectReference: {fileID: 0}
     - target: {fileID: 7133723156240819651, guid: 7eaf4b7dc883285418edc82749cb6131, type: 3}
