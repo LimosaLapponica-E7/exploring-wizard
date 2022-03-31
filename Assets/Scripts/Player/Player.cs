@@ -5,8 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     
-    Rigidbody2D rb;
     [SerializeField] private float moveSpeed = 4f;
+    [SerializeField] private Rigidbody2D playerBody;
     float speedLimiter = 0.7f;
     float inputHorizontal;
     float inputVertical;
@@ -21,14 +21,13 @@ public class Player : MonoBehaviour
     Vector2 movement;
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
+    
     }
 
     void Update()
     {
         inputHorizontal = Input.GetAxisRaw("Horizontal");
         inputVertical = Input.GetAxisRaw("Vertical");
-
     }
     void FixedUpdate()
     {
@@ -40,11 +39,19 @@ public class Player : MonoBehaviour
                 inputHorizontal *= speedLimiter;
                 inputVertical *= speedLimiter;
             }
-            rb.velocity = new Vector2(inputHorizontal * moveSpeed, inputVertical * moveSpeed);
+            playerBody.velocity = new Vector2(inputHorizontal * moveSpeed, inputVertical * moveSpeed);
         }
         else
         {
-            rb.velocity = new Vector2(0f, 0f);
+            playerBody.velocity = new Vector2(0f, 0f);
+        }
+    }
+
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Slime"){
+            PlayerStats.playerStats.dealDamage(1);
         }
     }
 }
