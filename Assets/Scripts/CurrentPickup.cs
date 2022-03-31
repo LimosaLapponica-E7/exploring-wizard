@@ -8,20 +8,27 @@ public class CurrentPickup : MonoBehaviour
     public PickupObject currentObject;
     public int pickupQuantity;
 
+    [SerializeField] private GameObject item;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.name == "Player")
+
+        Debug.Log("Collision!");
+        if (collision.gameObject.tag == "Player")
         {
-            if(currentObject == PickupObject.GOLD)
+            Debug.Log("Player Collision!");
+            if (currentObject == PickupObject.GOLD)
             {
                 PlayerStats.playerStats.gold += pickupQuantity;
                 Debug.Log(PlayerStats.playerStats.gold);
             }
-            else if(currentObject == PickupObject.POTION)
+            else if (currentObject == PickupObject.POTION)
             {
                 PlayerStats.playerStats.potion += pickupQuantity;
                 Debug.Log(PlayerStats.playerStats.potion);
             }
+
+            Destroy(item);
         }
     }
     // Start is called before the first frame update
