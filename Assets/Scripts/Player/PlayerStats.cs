@@ -14,6 +14,18 @@ public class PlayerStats : MonoBehaviour
     public int gold;
     public int potion;
 
+    private void Awake()
+    {
+        if(playerStats != null)
+        {
+            Destroy(playerStats);
+        }
+        else
+        {
+            playerStats = this;
+        }
+        DontDestroyOnLoad(this);
+    }
     // Start is called before the first frame update
     void Start()
     {
