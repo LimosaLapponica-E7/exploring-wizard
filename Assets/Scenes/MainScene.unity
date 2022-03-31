@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -307,6 +307,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &251855997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251855994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfd33dd87d8a3da42afa3de4ca70dd76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &294281953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1014,7 +1027,6 @@ GameObject:
   - component: {fileID: 1295754192}
   - component: {fileID: 1295754188}
   - component: {fileID: 1295754189}
-  - component: {fileID: 1295754193}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1165,19 +1177,6 @@ MonoBehaviour:
   maxDamage: 5
   projectileForce: 10
   spellForce: 5
---- !u!114 &1295754193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1295754186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfd33dd87d8a3da42afa3de4ca70dd76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
 --- !u!1 &1352203582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1474,7 +1473,7 @@ GameObject:
   - component: {fileID: 1585709651}
   - component: {fileID: 1585709652}
   - component: {fileID: 1585709653}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Gold
   m_TagString: Gold
   m_Icon: {fileID: 0}

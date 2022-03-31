@@ -10,10 +10,12 @@ public class Bullet : MonoBehaviour
     {
             if(collision.GetComponent<EnemyRecieveDamage>() != null)
             {
+            print(collision.name);
                 collision.GetComponent<EnemyRecieveDamage>().DealDamage(damage);
             }
             else
             {
+            Debug.Log("Thing Died");
                 Destroy(gameObject);
             }
     }
