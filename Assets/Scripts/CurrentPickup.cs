@@ -11,7 +11,6 @@ public class CurrentPickup : MonoBehaviour
 
 
     [SerializeField] private GameObject item;
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
