@@ -501,6 +501,7 @@ GameObject:
   - component: {fileID: 8834592265714779887}
   - component: {fileID: 8834592265714779886}
   - component: {fileID: 7410646608997857066}
+  - component: {fileID: 8118048246602807082}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -517,7 +518,7 @@ Transform:
   m_GameObject: {fileID: 8834592265714779883}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.93, y: 0.15, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children:
   - {fileID: 4824803054661933981}
   m_Father: {fileID: 0}
@@ -563,15 +564,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 443335980c10e8fb3b088cd2d8723804, type: 3}
+  m_Sprite: {fileID: -8121366107567134370, guid: 443335980c10e8fb3b088cd2d8723804, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.88, y: 0.32}
+  m_Size: {x: 0.25, y: 0.13}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &8834592265714779882
@@ -623,9 +624,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxHealth: 100
-  healthBar: {fileID: 0}
-  healthBarSlider: {fileID: 0}
-  lootDrop: {fileID: 0}
+  healthBar: {fileID: 9156616303747685377, guid: 743c2eceb0c8423448c0a60a18d10550, type: 3}
+  healthBarSlider: {fileID: 2457388258681724666, guid: 1687f2e118aced343acdc9a32a6e5dc9, type: 3}
+  lootDrop: {fileID: 6759456009748762491, guid: 3ea867f0e9461c144b65f8bc5ee2fd97, type: 3}
 --- !u!95 &7410646608997857066
 Animator:
   serializedVersion: 3
@@ -645,3 +646,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &8118048246602807082
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8834592265714779883}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.25, y: 0.13}
+    newSize: {x: 0.25, y: 0.13}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.25, y: 0.16}
+  m_EdgeRadius: 0
