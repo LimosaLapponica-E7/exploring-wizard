@@ -1178,7 +1178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slime: {fileID: 4295578118190388007, guid: fb56ec040fdf698848a778b71c7df55b, type: 3}
-  slimeRate: 13
+  slimeRate: 12
 --- !u!1 &1352203582
 GameObject:
   m_ObjectHideFlags: 0

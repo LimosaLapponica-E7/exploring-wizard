@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
 
     void spawnSlime()
     {
-        Vector2 randomPoint = Random.insideUnitCircle * 5;
+        Vector2 randomPoint = Random.insideUnitCircle * 200;
         Instantiate(slime, randomPoint, Quaternion.identity);
         timesinceslime = 0;
     }
