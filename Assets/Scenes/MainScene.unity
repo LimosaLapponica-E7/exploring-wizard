@@ -1011,9 +1011,9 @@ GameObject:
   - component: {fileID: 1295754190}
   - component: {fileID: 1295754192}
   - component: {fileID: 1295754188}
-  - component: {fileID: 1295754189}
   - component: {fileID: 1295754187}
   - component: {fileID: 1295754193}
+  - component: {fileID: 1295754189}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1045,7 +1045,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1073,7 +1073,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -1178,7 +1178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slime: {fileID: 4295578118190388007, guid: fb56ec040fdf698848a778b71c7df55b, type: 3}
-  slimeRate: 5
+  slimeRate: 10
 --- !u!1 &1352203582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1390,6 +1390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1555505728}
   - component: {fileID: 1555505727}
+  - component: {fileID: 1555505729}
   m_Layer: 6
   m_Name: Terrain Background
   m_TagString: Untagged
@@ -1442,7 +1443,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 1000, y: 1000}
+  m_Size: {x: 350, y: 350}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1462,6 +1463,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1555505729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555505726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb1111442f9c8c0eea335197b77630cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfObstacles: 2000
+  terrain: {fileID: 1555505727}
+  obstacles:
+  - {fileID: 8839656213870271170, guid: b25cb96b60204f56f974a42bcd9533a9, type: 3}
+  - {fileID: 541106138637120512, guid: 0d7c83d0eed0955f68024890d8b70b25, type: 3}
+  - {fileID: 596607246556828844, guid: 6bfcb41cce54279f2b8ce7d3caec1c15, type: 3}
 --- !u!1 &1585709648
 GameObject:
   m_ObjectHideFlags: 0
@@ -1881,6 +1900,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1295754191}
+    - target: {fileID: 4295578118190388006, guid: fb56ec040fdf698848a778b71c7df55b, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4295578118190388007, guid: fb56ec040fdf698848a778b71c7df55b, type: 3}
       propertyPath: m_Name
       value: Slime

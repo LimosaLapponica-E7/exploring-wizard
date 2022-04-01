@@ -53,5 +53,8 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Slime"){
             PlayerStats.playerStats.dealDamage(5f);
         }
+        if (collision.gameObject.tag == "Obstacle"){
+            PlayerStats.playerStats.dealDamage(2f);
+        }
     }
 }
