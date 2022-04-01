@@ -48,11 +48,10 @@ public class Player : MonoBehaviour
         }
     }
 
-
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Slime"){
-            PlayerStats.playerStats.dealDamage(1);
+            PlayerStats.playerStats.dealDamage(5f);
         }
     }
 }
