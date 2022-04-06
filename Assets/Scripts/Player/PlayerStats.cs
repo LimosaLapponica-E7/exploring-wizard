@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
+using UnityEngine.UI;
 public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats playerStats;
@@ -11,12 +12,16 @@ public class PlayerStats : MonoBehaviour
     public float health;
     public float maxHealth;
 
+    public GameObject healthBar;
+    public Slider healthBarSlider;
+
     public int gold;
     public int potion;
 
     private void Awake()
     {
-        if(playerStats != null)
+     
+        if (playerStats != null)
         {
             Destroy(playerStats);
         }
@@ -26,16 +31,12 @@ public class PlayerStats : MonoBehaviour
         }
         DontDestroyOnLoad(this);
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     public void dealDamage(float damage)
     {
         health -= damage;
         CheckDeath();
+        healthBarSlider.value = CalculateHealthPercentage();
     }
 
     public void healCharacter(float heal)
@@ -60,6 +61,10 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    private float CalculateHealthPercentage()
+    {
+        return (health / maxHealth);
+    }
     // Update is called once per frame
     void Update()
     {
