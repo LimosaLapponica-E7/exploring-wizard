@@ -33,8 +33,6 @@ public class ObstacleGenerator : MonoBehaviour
             newObstacle.transform.Rotate(0.0f, 0.0f, Random.Range(0.0f, 360.0f));
         }
 
-        Debug.Log( 0.01*(10 - obstacleDensity));
-
         Vector2 randomPos(float minDistance, int i)
         {
             int limitCount = 0;
