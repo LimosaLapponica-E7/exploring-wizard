@@ -12,14 +12,14 @@ public class FlockingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        allUnits = new GameObject[numUnits];
-        for(int i = 0; i < numUnits; i++)
-        {
-            Vector2 pos = this.transform.position + new Vector2(Random.Range(0, 5),
-                                                        Vector2(Random.Range(0, 5));
-            allUnits[i] = (GameObject) Instantiate(flockUnit, pos, Quaternion.identity);
+        // allUnits = new GameObject[numUnits];
+        // for(int i = 0; i < numUnits; i++)
+        // {
+        //     Vector2 pos = this.transform.position + new Vector2(Random.Range(0, 5),
+        //                                                 Vector2(Random.Range(0, 5)));
+        //     allUnits[i] = (GameObject) Instantiate(flockUnit, pos, Quaternion.identity);
                                                         
-        }
+        // }
         
     }
 
