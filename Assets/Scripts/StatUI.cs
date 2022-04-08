@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class StatUI : MonoBehaviour
 {
 
@@ -11,6 +12,7 @@ public class StatUI : MonoBehaviour
     [SerializeField] private TMP_Text gold;
     [SerializeField] private TMP_Text enemiesKilled;
     [SerializeField] private TMP_Text attackSpeed;
+
 
     public GameObject restartButton;
     public GameObject uponDeathUI;
@@ -44,6 +46,6 @@ public class StatUI : MonoBehaviour
 
     public void restartScene()
     {
-
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
