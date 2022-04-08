@@ -18,12 +18,19 @@ public class PlayerStats : MonoBehaviour
     public int gold;
     public int potion;
 
+    public StatUI callStatUI;
+
+    void Start()
+    {
+        callStatUI = GameObject.FindObjectOfType(typeof(StatUI)) as StatUI;
+        
+    }
     private void Awake()
     {
      
         if (playerStats != null)
         {
-            Destroy(playerStats);
+         /*   Destroy(playerStats);*/
         }
         else
         {
@@ -58,6 +65,7 @@ public class PlayerStats : MonoBehaviour
         if (health <= 0)
         {
             Player.SetActive(false);
+            callStatUI.UponPlayerDeathDisplayUI();
         }
     }
 
