@@ -11,12 +11,11 @@ public class ObstacleGenerator : MonoBehaviour
 
     [SerializeField] private GameObject[] obstacles;
 
-    [SerializeField] private GameObject player;
 
     [SerializeField] private float minDistFromPlayer;
    
 
-    void Start()
+    public void Generate()
     {
         // Get terrain dimensions
         float cornerX = terrain.bounds.size.x / 2;
@@ -60,7 +59,7 @@ public class ObstacleGenerator : MonoBehaviour
                 }
 
             }
-            while (Vector2.Distance(obstaclePos, player.transform.position) < minDistance
+            while (Vector2.Distance(obstaclePos, GameObject.Find("Player").transform.position) < minDistance
             || spaceUsed(obstaclePos, i));
             return obstaclePos;
         }
