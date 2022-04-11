@@ -17,7 +17,7 @@ public class CurrentPickup : MonoBehaviour
         {
             if (currentObject == PickupObject.GOLD)
             {
-                PlayerStats.instance.healCharacter(5f);
+                PlayerStats.instance.giveGold(5);
             }
             else if (currentObject == PickupObject.POTION)
             {

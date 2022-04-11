@@ -60,6 +60,12 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    public void giveGold(float gold)
+    {
+        gold = gold + 5;
+        callStatUI.UpdateGoldNumber(gold);
+    }
+
     private void CheckDeath()
     {
         if (health <= 0)

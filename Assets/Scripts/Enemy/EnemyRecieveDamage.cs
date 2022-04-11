@@ -11,10 +11,15 @@ public class EnemyRecieveDamage : MonoBehaviour
     public GameObject healthBar;
     public Slider healthBarSlider;
 
+    private int enemyDefeatCount;
+
+    public StatUI callStatUI;
+
     public GameObject lootDrop;
     // Start is called before the first frame update
     void Start()
     {
+        callStatUI = GameObject.FindObjectOfType(typeof(StatUI)) as StatUI;
         health = maxHealth;
     }
 
@@ -40,6 +45,8 @@ public class EnemyRecieveDamage : MonoBehaviour
         {
             Destroy(gameObject);
             Instantiate(lootDrop, transform.position, Quaternion.identity);
+            enemyDefeatCount++;
+            callStatUI.ShowEnemyDefeatCount(enemyDefeatCount);
         }
     }
 
