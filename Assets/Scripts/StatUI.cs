@@ -47,5 +47,7 @@ public class StatUI : MonoBehaviour
     public void restartScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        uponDeathUI.SetActive(false);
+        restartButton.SetActive(false);
     }
 }

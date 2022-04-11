@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 public class PlayerStats : MonoBehaviour
 {
-    public static PlayerStats playerStats;
+    public static PlayerStats instance;
 
     public GameObject Player;
 
@@ -28,13 +28,13 @@ public class PlayerStats : MonoBehaviour
     private void Awake()
     {
      
-        if (playerStats != null)
+        if (instance != null)
         {
-         /*   Destroy(playerStats);*/
+            Destroy(instance);
         }
         else
         {
-            playerStats = this;
+            instance = this;
         }
         DontDestroyOnLoad(this);
     }

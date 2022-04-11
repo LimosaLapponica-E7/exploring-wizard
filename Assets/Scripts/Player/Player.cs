@@ -51,10 +51,10 @@ public class Player : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Slime"){
-            PlayerStats.playerStats.dealDamage(5f);
+            PlayerStats.instance.dealDamage(5f);
         }
         if (collision.gameObject.tag == "Obstacle"){
-            PlayerStats.playerStats.dealDamage(2f);
+            PlayerStats.instance.dealDamage(2f);
         }
     }
 }

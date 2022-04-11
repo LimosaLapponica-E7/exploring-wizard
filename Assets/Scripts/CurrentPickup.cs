@@ -17,11 +17,11 @@ public class CurrentPickup : MonoBehaviour
         {
             if (currentObject == PickupObject.GOLD)
             {
-                PlayerStats.playerStats.healCharacter(5f);
+                PlayerStats.instance.healCharacter(5f);
             }
             else if (currentObject == PickupObject.POTION)
             {
-                PlayerStats.playerStats.potion += pickupQuantity;
+                PlayerStats.instance.potion += pickupQuantity;
             }
 
             Destroy(item);
