@@ -5,6 +5,7 @@ using UnityEngine;
 public class LandscapeSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] landscapes;
+    [SerializeField] private GameObject player;
     public int blockSize;
 
     void Start()
@@ -23,6 +24,7 @@ public class LandscapeSpawner : MonoBehaviour
     
     void Update()
     {
+
         
     }
 }
