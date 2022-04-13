@@ -12,7 +12,7 @@ public class FlockAgent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        agentCollider - GetComponent<Collider2D>();
+        agentCollider = GetComponent<Collider2D>();
     }
 
     public void Move(Vector2 velocity)
