@@ -56,5 +56,11 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Obstacle"){
             PlayerStats.instance.dealDamage(2f);
         }
+        if (collision.gameObject.tag == "Gold")
+        {
+            PlayerStats.instance.giveGold(2f);
+            Destroy(gameObject);
+            Debug.Log("Hit Gold");
+        }
     }
 }

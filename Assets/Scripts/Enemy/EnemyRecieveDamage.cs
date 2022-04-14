@@ -11,7 +11,7 @@ public class EnemyRecieveDamage : MonoBehaviour
     public GameObject healthBar;
     public Slider healthBarSlider;
 
-    private int enemyDefeatCount;
+    public int enemyDefeatCount;
 
     public StatUI callStatUI;
 
@@ -21,6 +21,7 @@ public class EnemyRecieveDamage : MonoBehaviour
     {
         callStatUI = GameObject.FindObjectOfType(typeof(StatUI)) as StatUI;
         health = maxHealth;
+        
     }
 
     public void DealDamage(float damage)

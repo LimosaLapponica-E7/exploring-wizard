@@ -23,20 +23,12 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         callStatUI = GameObject.FindObjectOfType(typeof(StatUI)) as StatUI;
-        
+        gold = 0;
+        health = maxHealth;
     }
     private void Awake()
     {
-     
-        if (instance != null)
-        {
-            Destroy(instance);
-        }
-        else
-        {
             instance = this;
-        }
-        DontDestroyOnLoad(this);
     }
 
     public void dealDamage(float damage)
@@ -64,13 +56,18 @@ public class PlayerStats : MonoBehaviour
     {
         gold = gold + 5;
         callStatUI.UpdateGoldNumber(gold);
+        Debug.Log("Give Gold Got Calld");
+        print(gold);
     }
 
     private void CheckDeath()
     {
         if (health <= 0)
         {
-            Player.SetActive(false);
+            if (instance != null)
+            {
+                instance = null;
+            }
             callStatUI.UponPlayerDeathDisplayUI();
         }
     }
