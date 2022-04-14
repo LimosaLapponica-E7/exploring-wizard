@@ -21,6 +21,7 @@ public class StatUI : MonoBehaviour
     int enemyDefeatCount;
     void Start()
     {
+        enemyDefeatCount = 0;
         uponDeathUI.SetActive(false);
     }
     public void UpdateLevelNumber(float count)
@@ -37,7 +38,7 @@ public class StatUI : MonoBehaviour
     public void UpdateEnemyDefeatCount()
     {
         enemyDefeatCount++;
-        print(enemyDefeatCount);
+        Debug.Log(enemyDefeatCount);
         enemiesKilled.text = "Enemies Defeated: " + enemyDefeatCount;
     }
 

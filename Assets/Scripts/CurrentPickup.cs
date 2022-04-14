@@ -19,7 +19,6 @@ public class CurrentPickup : MonoBehaviour
             if (currentObject == PickupObject.GOLD)
             {
                 PlayerStats.instance.giveGold(5);
-                Debug.Log("Current Pickup call giveGold");
             }
             else if (currentObject == PickupObject.POTION)
             {

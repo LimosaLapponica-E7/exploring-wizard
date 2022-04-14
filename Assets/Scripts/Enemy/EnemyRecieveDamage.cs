@@ -11,6 +11,8 @@ public class EnemyRecieveDamage : MonoBehaviour
     public GameObject healthBar;
     public Slider healthBarSlider;
 
+    [SerializeField] private GameObject enemy;
+
     public GameObject lootDrop;
 
     // Start is called before the first frame update
@@ -41,9 +43,10 @@ public class EnemyRecieveDamage : MonoBehaviour
     {
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Debug.Log("Enemy health 0");
             Instantiate(lootDrop, transform.position, Quaternion.identity);
-            GameObject.Find("Stats Player Death UI").GetComponent<StatUI>().UpdateEnemyDefeatCount();
+            GameObject.Find("Stats Player Death UI").GetComponent<StatUI>().UponPlayerDeathDisplayUI();
+            Destroy(enemy);
         }
     }
 

@@ -14,9 +14,5 @@ public class Bullet : MonoBehaviour
         {
             collision.GetComponent<EnemyRecieveDamage>().DealDamage(damage);
         }
-        else
-        {
-            Destroy(gameObject);
-        }
     }
 }

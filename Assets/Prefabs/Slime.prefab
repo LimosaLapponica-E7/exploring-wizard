@@ -626,6 +626,7 @@ MonoBehaviour:
   maxHealth: 100
   healthBar: {fileID: 9156616303747685377, guid: 743c2eceb0c8423448c0a60a18d10550, type: 3}
   healthBarSlider: {fileID: 2457388258681724666, guid: 1687f2e118aced343acdc9a32a6e5dc9, type: 3}
+  enemy: {fileID: 8834592265714779883}
   lootDrop: {fileID: 6759456009748762491, guid: 3ea867f0e9461c144b65f8bc5ee2fd97, type: 3}
 --- !u!95 &7410646608997857066
 Animator:
