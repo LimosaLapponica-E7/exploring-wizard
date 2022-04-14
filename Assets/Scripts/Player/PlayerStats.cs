@@ -15,14 +15,14 @@ public class PlayerStats : MonoBehaviour
     public GameObject healthBar;
     public Slider healthBarSlider;
 
-    public int gold;
+    public float goldNumber;
     public int potion;
 
     public GameObject StatUI;
 
     void Start()
     {
-        gold = 0;
+        goldNumber = 0;
         health = maxHealth;
     }
     private void Awake()
@@ -53,10 +53,8 @@ public class PlayerStats : MonoBehaviour
 
     public void giveGold(float gold)
     {
-        gold = gold + 5;
-        StatUI.GetComponent<StatUI>().UpdateGoldNumber(gold);
-        Debug.Log("Give Gold Got Calld");
-        print(gold);
+        goldNumber = goldNumber + gold;
+        StatUI.GetComponent<StatUI>().UpdateGoldNumber(goldNumber);
     }
 
     private void CheckDeath()

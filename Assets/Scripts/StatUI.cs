@@ -18,11 +18,12 @@ public class StatUI : MonoBehaviour
     public GameObject uponDeathUI;
     public GameObject playerHealthBar;
 
+    int enemyDefeatCount;
     void Start()
     {
         uponDeathUI.SetActive(false);
     }
-    public void updateLevelNumber(float count)
+    public void UpdateLevelNumber(float count)
     {
         levelNumber.text = "Level:" + count;
     }
@@ -33,9 +34,11 @@ public class StatUI : MonoBehaviour
         
     }
 
-    public void ShowEnemyDefeatCount(float count)
+    public void UpdateEnemyDefeatCount()
     {
-        enemiesKilled.text = "Enemies Defeated: " + count;
+        enemyDefeatCount++;
+        print(enemyDefeatCount);
+        enemiesKilled.text = "Enemies Defeated: " + enemyDefeatCount;
     }
 
     public void UponPlayerDeathDisplayUI()
@@ -43,7 +46,6 @@ public class StatUI : MonoBehaviour
         uponDeathUI.SetActive(true);
         playerHealthBar.SetActive(false);
         restartButton.SetActive(true);
-        Debug.Log("Update UI is being Called");
     }
 
     public void restartScene()

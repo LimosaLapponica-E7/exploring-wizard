@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.tag == "Gold")
         {
-            PlayerStats.instance.giveGold(2f);
+            PlayerStats.instance.giveGold(5);
             Destroy(gameObject);
             Debug.Log("Hit Gold");
         }
