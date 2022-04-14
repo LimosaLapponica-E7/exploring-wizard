@@ -17,6 +17,7 @@ public class Spell : MonoBehaviour
     private float secondspershot = 0.2f;
 
     [SerializeField] private AudioSource fireSound;
+    [SerializeField] private AudioSource fireInPlaceSound;
 
     // Update is called once per frame
     void Update()
@@ -28,7 +29,7 @@ public class Spell : MonoBehaviour
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 myPos = transform.position;
             Vector2 direction = (mousePos - myPos).normalized;
-            FireProjectile(direction * projectileForce);
+            FireInPlace(direction * projectileForce);
             
         }
 
@@ -69,11 +70,12 @@ public class Spell : MonoBehaviour
             fireSound.Play();
         }
 
-        void FireProjectile(Vector2 direction)
+        void FireInPlace(Vector2 direction)
         {
             GameObject projectileInstance = Instantiate(projectile, transform.position, Quaternion.identity);
             projectileInstance.GetComponent<Rigidbody2D>().velocity = direction;
             StartCoroutine(Expire(projectileInstance, 3f));
+            fireInPlaceSound.Play();
         }
 
         IEnumerator Expire(GameObject toDestroy, float seconds)
