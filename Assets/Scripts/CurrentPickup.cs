@@ -8,6 +8,7 @@ public class CurrentPickup : MonoBehaviour
 
     public PickupObject currentObject;
     public int pickupQuantity;
+    AudioSource rewardSound;
 
 
     [SerializeField] private GameObject item;
@@ -24,7 +25,8 @@ public class CurrentPickup : MonoBehaviour
             {
                 PlayerStats.instance.potion += pickupQuantity;
             }
-
+            rewardSound = GameObject.Find("Reward Sound").GetComponent<AudioSource>(); 
+            rewardSound.Play();
             Destroy(item);
         }
     }

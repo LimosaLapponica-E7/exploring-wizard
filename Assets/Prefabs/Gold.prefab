@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentObject: 0
   pickupQuantity: 10
+  rewardSound: {fileID: 0}
   item: {fileID: 6759456009748762491}
 --- !u!50 &6759456009748762495
 Rigidbody2D:
