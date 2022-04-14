@@ -788,7 +788,7 @@ MonoBehaviour:
   maxHealth: 30
   healthBar: {fileID: 700285936}
   healthBarSlider: {fileID: 1913771533}
-  gold: 0
+  goldNumber: 0
   potion: 0
   StatUI: {fileID: 0}
 --- !u!1 &737636314
@@ -1551,7 +1551,7 @@ MonoBehaviour:
   maxHealth: 30
   healthBar: {fileID: 700285936}
   healthBarSlider: {fileID: 1913771533}
-  gold: 0
+  goldNumber: 0
   potion: 0
   StatUI: {fileID: 1039888918}
 --- !u!1 &1222748029
@@ -2207,7 +2207,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 830e9b9b3636549f9b71e0b702e9c3f2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a0bcb1ee3169be2b988c61d7e85a2378, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
