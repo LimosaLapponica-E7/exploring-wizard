@@ -18,11 +18,10 @@ public class PlayerStats : MonoBehaviour
     public int gold;
     public int potion;
 
-    public StatUI callStatUI;
+    public GameObject StatUI;
 
     void Start()
     {
-        callStatUI = GameObject.FindObjectOfType(typeof(StatUI)) as StatUI;
         gold = 0;
         health = maxHealth;
     }
@@ -55,7 +54,7 @@ public class PlayerStats : MonoBehaviour
     public void giveGold(float gold)
     {
         gold = gold + 5;
-        callStatUI.UpdateGoldNumber(gold);
+        StatUI.GetComponent<StatUI>().UpdateGoldNumber(gold);
         Debug.Log("Give Gold Got Calld");
         print(gold);
     }
@@ -64,11 +63,9 @@ public class PlayerStats : MonoBehaviour
     {
         if (health <= 0)
         {
-            if (instance != null)
-            {
-                instance = null;
-            }
-            callStatUI.UponPlayerDeathDisplayUI();
+                Player.SetActive(false);
+
+           StatUI.GetComponent<StatUI>().UponPlayerDeathDisplayUI();
         }
     }
 

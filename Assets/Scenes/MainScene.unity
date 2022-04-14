@@ -361,6 +361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f256ae8a42e82345b147a726b26af26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agentCollider: {fileID: 0}
 --- !u!4 &389337661
 Transform:
   m_ObjectHideFlags: 0
@@ -373,7 +374,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &441085609
 GameObject:
@@ -656,14 +657,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c386b35008c195147a4f45726ebbe201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1295754186}
+  Player: {fileID: 0}
   health: 30
   maxHealth: 30
   healthBar: {fileID: 700285936}
   healthBarSlider: {fileID: 1913771533}
   gold: 0
   potion: 0
-  callStatUI: {fileID: 1039888923}
+  StatUI: {fileID: 0}
 --- !u!1 &737636314
 GameObject:
   m_ObjectHideFlags: 0
@@ -1438,7 +1439,7 @@ MonoBehaviour:
   healthBarSlider: {fileID: 1913771533}
   gold: 0
   potion: 0
-  callStatUI: {fileID: 1039888923}
+  StatUI: {fileID: 1039888918}
 --- !u!1 &1222748029
 GameObject:
   m_ObjectHideFlags: 0
@@ -1469,6 +1470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flockUnit: {fileID: 1345408727320112564, guid: acad08f973acb5c4da6758930f60ae71, type: 3}
+  agents: []
   behavior: {fileID: 0}
   numUnits: 100
   flockLimits: {x: 5, y: 5}
@@ -1476,6 +1478,9 @@ MonoBehaviour:
   maxSpeed: 5
   neighborRadius: 0.5
   avoidanceRadiusMultiplier: 0.5
+  squareMaxSpeed: 0
+  squareNeighborRadius: 0
+  squareAvoidanceRadius: 0
 --- !u!4 &1222748031
 Transform:
   m_ObjectHideFlags: 0
@@ -2019,7 +2024,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1814262521
 GameObject:
