@@ -42,7 +42,6 @@ public class EnemyRecieveDamage : MonoBehaviour
     {
         if (health <= 0)
         {
-            Destroy(gameObject);
             Instantiate(lootDrop, transform.position, Quaternion.identity);
             enemyDefeatCount++;
             StatUI.GetComponent<StatUI>().ShowEnemyDefeatCount(enemyDefeatCount);
