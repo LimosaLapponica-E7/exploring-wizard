@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -78,7 +78,7 @@ public class FlockingManager : MonoBehaviour
                 move = move.normalized * squareMaxSpeed;
             }
             agent.Move(move);
-            */
+            *//*
         } 
     }
 
@@ -97,3 +97,4 @@ public class FlockingManager : MonoBehaviour
         return context;
     }
 }
+*/

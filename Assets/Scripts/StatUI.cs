@@ -29,7 +29,8 @@ public class StatUI : MonoBehaviour
 
     public void UpdateGoldNumber(float count)
     {
-        gold.text = "Enemies Defeated: " + count;
+        gold.text = "Gold Attained: " + count;
+        
     }
 
     public void ShowEnemyDefeatCount(float count)
@@ -42,6 +43,7 @@ public class StatUI : MonoBehaviour
         uponDeathUI.SetActive(true);
         playerHealthBar.SetActive(false);
         restartButton.SetActive(true);
+        Debug.Log("Update UI is being Called");
     }
 
     public void restartScene()
