@@ -9,6 +9,8 @@ public class ObstacleGenerator : MonoBehaviour
 
     [SerializeField] private SpriteRenderer terrain;
 
+    [SerializeField] private Transform terrainTransform;
+
     [SerializeField] private GameObject[] obstacles;
 
 
@@ -20,6 +22,8 @@ public class ObstacleGenerator : MonoBehaviour
         // Get terrain dimensions
         float cornerX = terrain.bounds.size.x / 2;
         float cornerY = terrain.bounds.size.y / 2;
+        float xPos = terrainTransform.position.x;
+        float yPos = terrainTransform.position.y;
 
         /* Compute the number of obstacles corresponding to a particular 
            density. The current setting is 1% the terrain size in square units
@@ -47,8 +51,8 @@ public class ObstacleGenerator : MonoBehaviour
             Vector2 obstaclePos;
             do
             {
-                obstaclePos = new Vector2(Random.Range(-cornerX, cornerX),
-                Random.Range(-cornerY, cornerY));
+                obstaclePos = new Vector2(Random.Range(-cornerX + xPos, cornerX + xPos),
+                Random.Range(-cornerY + yPos, cornerY + yPos));
                 obstacleMap[i] = obstaclePos;
                 limitCount++;
                 // Code for debugging. Avoids infinite loops by giving up on

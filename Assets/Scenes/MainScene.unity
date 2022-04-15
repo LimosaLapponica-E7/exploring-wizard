@@ -2075,7 +2075,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!212 &1295754190
 SpriteRenderer:
@@ -2467,7 +2467,7 @@ MonoBehaviour:
   tileTypes:
   - {fileID: 6621581150787719013, guid: 0135656a378ab6fe98fd28921bf54c89, type: 3}
   player: {fileID: 1295754191}
-  blockSize: 40
+  tileSize: 40
 --- !u!4 &1718518389
 Transform:
   m_ObjectHideFlags: 0

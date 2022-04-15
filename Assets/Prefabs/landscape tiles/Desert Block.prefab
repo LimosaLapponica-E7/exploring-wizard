@@ -97,6 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacleDensity: 3.5
   terrain: {fileID: 6621581150787719012}
+  terrainTransform: {fileID: 6621581150787718939}
   obstacles:
   - {fileID: 8839656213870271170, guid: b25cb96b60204f56f974a42bcd9533a9, type: 3}
   - {fileID: 596607246556828844, guid: 6bfcb41cce54279f2b8ce7d3caec1c15, type: 3}
