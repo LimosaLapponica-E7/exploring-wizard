@@ -39,22 +39,27 @@ public class EnemyRecieveDamage : MonoBehaviour
     {
         if (health <= 0)
         {
-            
-            if (Random.Range(0,6) == six)
+
+            if (Random.Range(0, 6) == six)
             {
-                Instantiate(potionDrop, transform.position, Quaternion.identity);
-                Debug.Log("Instantiated Potion");
+                Reward(potionDrop);
             }
             else
             {
-                Instantiate(lootDrop, transform.position, Quaternion.identity);
+                Reward(lootDrop);
             }
-            StatUI.UpdateEnemyDefeatCount();
-            gameObject.GetComponent<AudioSource>().Play();
-            Destroy(gameObject, 0.55f);
-            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
-            StartCoroutine(slimeTremble());
+
         }
+    }
+
+
+    private void Reward(GameObject playerReward)
+    {
+        StatUI.UpdateEnemyDefeatCount();
+        gameObject.GetComponent<AudioSource>().Play();
+        Destroy(gameObject, 0.55f);
+        StartCoroutine(slimeTremble());
+        StartCoroutine(Wait(0.5f, playerReward));
     }
 
     IEnumerator slimeTremble()
@@ -62,11 +67,18 @@ public class EnemyRecieveDamage : MonoBehaviour
         // Based on https://stackoverflow.com/a/65242499
         for (int i = 0; i < 5; i++)
         {
-            transform.localPosition += new Vector3(0.07f, 0.07f, 0);
-            yield return new WaitForSeconds(0.006f);
-            transform.localPosition -= new Vector3(0.07f, 0.07f, 0);
-            yield return new WaitForSeconds(0.006f);
+            transform.localPosition += new Vector3(0.1f, 0.1f, 0);
+            yield return new WaitForSeconds(0.1f);
+            transform.localPosition -= new Vector3(0.1f, 0.1f, 0);
+            yield return new WaitForSeconds(0.1f);
         }
+    }
+
+
+    IEnumerator Wait(float seconds, GameObject playerReward)
+    {
+        yield return new WaitForSeconds(seconds);
+        Instantiate(playerReward, transform.position, Quaternion.identity);
     }
 
     private float CalculateHealthPercentage()
