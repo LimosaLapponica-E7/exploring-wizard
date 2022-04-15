@@ -1,4 +1,4 @@
-/*using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,4 +21,3 @@ public class FlockAgent : MonoBehaviour
         transform.position = (Vector3)velocity * Time.deltaTime;
     }
 }
-*/
