@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class CurrentPickup : MonoBehaviour
 {
-    public enum PickupObject {GOLD,POTION};
+    public enum PickupObject { GOLD, POTION };
 
     public PickupObject currentObject;
     public int pickupQuantity;
     AudioSource rewardSound;
-
 
     [SerializeField] private GameObject item;
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,7 +23,7 @@ public class CurrentPickup : MonoBehaviour
             {
                 PlayerStats.instance.potion += pickupQuantity;
             }
-            rewardSound = GameObject.Find("Reward Sound").GetComponent<AudioSource>(); 
+            rewardSound = GameObject.Find("Reward Sound").GetComponent<AudioSource>();
             rewardSound.Play();
             Destroy(item);
         }
@@ -32,12 +31,12 @@ public class CurrentPickup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

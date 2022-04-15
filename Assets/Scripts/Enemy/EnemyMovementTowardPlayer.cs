@@ -7,16 +7,17 @@ public class EnemyMovementTowardPlayer : MonoBehaviour
     // Start is called before the first frame update
 
     // Enemy Movement
-    public Transform player;
-    public float moveSpeed = 5f;
+    public float moveSpeed;
     private Rigidbody2D rb;
     private Vector2 movement;
     private SpriteRenderer spriteRenderer;
     private float timesinceflip = 0.0f;
+
+    Transform player;
     void Start()
     {
-        rb = this.GetComponent<Rigidbody2D>();
-        player = (GameObject.Find("Player")).GetComponent<Transform>();
+       rb = this.GetComponent<Rigidbody2D>();
+       player = (GameObject.Find("Player")).GetComponent<Transform>();
     }
 
     // Update is called once per frame

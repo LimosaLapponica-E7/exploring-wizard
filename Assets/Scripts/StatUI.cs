@@ -13,12 +13,11 @@ public class StatUI : MonoBehaviour
     [SerializeField] private TMP_Text enemiesKilled;
     [SerializeField] private TMP_Text attackSpeed;
 
-
     public GameObject restartButton;
     public GameObject uponDeathUI;
     public GameObject playerHealthBar;
 
-    int enemyDefeatCount;
+    static int enemyDefeatCount;
     void Start()
     {
         enemyDefeatCount = 0;
@@ -32,18 +31,20 @@ public class StatUI : MonoBehaviour
     public void UpdateGoldNumber(float count)
     {
         gold.text = "Gold Attained: " + count;
-        
     }
 
-    public void UpdateEnemyDefeatCount()
+    public static void UpdateEnemyDefeatCount()
     {
-        enemyDefeatCount++;
-        Debug.Log(enemyDefeatCount);
-        enemiesKilled.text = "Enemies Defeated: " + enemyDefeatCount;
+        enemyDefeatCount++;        
+    }
+
+    int getEnemyDefeatCount() {
+        return enemyDefeatCount;
     }
 
     public void UponPlayerDeathDisplayUI()
     {
+        enemiesKilled.text = "Enemies Defeated: " + getEnemyDefeatCount();;
         uponDeathUI.SetActive(true);
         playerHealthBar.SetActive(false);
         restartButton.SetActive(true);

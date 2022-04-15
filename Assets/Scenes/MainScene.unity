@@ -2046,7 +2046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24f35cbba4f53648803c66db92d9b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slime: {fileID: 8834592265714779883, guid: 34998b7b509ca994d97b46b78ed876e8, type: 3}
+  slime: {fileID: 4295578118190388007, guid: fb56ec040fdf698848a778b71c7df55b, type: 3}
   slimeRate: 12
 --- !u!82 &1295754194
 AudioSource:
