@@ -39,7 +39,22 @@ public class EnemyRecieveDamage : MonoBehaviour
         {
             Instantiate(lootDrop, transform.position, Quaternion.identity);
             StatUI.UpdateEnemyDefeatCount();
-            Destroy(gameObject);
+            gameObject.GetComponent<AudioSource>().Play();
+            Destroy(gameObject, 0.55f);
+            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+            StartCoroutine(slimeTremble());
+        }
+    }
+
+    IEnumerator slimeTremble()
+    {
+        // Based on https://stackoverflow.com/a/65242499
+        for (int i = 0; i < 5; i++)
+        {
+            transform.localPosition += new Vector3(0.07f, 0.07f, 0);
+            yield return new WaitForSeconds(0.006f);
+            transform.localPosition -= new Vector3(0.07f, 0.07f, 0);
+            yield return new WaitForSeconds(0.006f);
         }
     }
 
