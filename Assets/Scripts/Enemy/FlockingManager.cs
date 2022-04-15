@@ -1,4 +1,4 @@
-/*using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,8 +22,8 @@ public class FlockingManager : MonoBehaviour
     [Range(1f, 100f)]
     public float maxSpeed = 5f;
 
-    [Range(1f, 10f)]
-    public float neighborRadius = 0.5f;
+    [Range(0f, 10f)]
+    public float neighborRadius = 1.5f;
 
     [Range(0f, 1f)]
     public float avoidanceRadiusMultiplier = 0.5f;
@@ -46,20 +46,12 @@ public class FlockingManager : MonoBehaviour
            FlockAgent newAgent = Instantiate(
                 flockUnit,
                 Random.insideUnitCircle * numUnits * flockDensity,
-                Quaternion.Euler(Vector3.forward * Random.Range(0f, 360f)),
+                Quaternion.Euler(Vector3.forward * Random.Range(0f,360f)),
                 transform);
             newAgent.name = "flockUnit " + i;
             agents.Add(newAgent);
         }
 
-        // allUnits = new GameObject[numUnits];
-        // for(int i = 0; i < numUnits; i++)
-        // {
-        //     Vector2 pos = this.transform.position + new Vector2(Random.Range(0, 5),
-        //                                                 Vector2(Random.Range(0, 5)));
-        //     allUnits[i] = (GameObject) Instantiate(flockUnit, pos, Quaternion.identity);
-                                                        
-        // }
         
     }
 
@@ -70,15 +62,15 @@ public class FlockingManager : MonoBehaviour
         {
             
             List<Transform> context = GetNearbyObjects(agent);
-            /*
+
             Vector2 move = behavior.CalculateMove(agent, context, this);
             move *= driveFactor;
             if(move.sqrMagnitude > squareMaxSpeed)
             {
-                move = move.normalized * squareMaxSpeed;
+                move = move.normalized * maxSpeed;
             }
             agent.Move(move);
-            *//*
+
         } 
     }
 
@@ -97,4 +89,3 @@ public class FlockingManager : MonoBehaviour
         return context;
     }
 }
-*/

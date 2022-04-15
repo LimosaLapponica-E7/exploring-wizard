@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: b24f35cbba4f53648803c66db92d9b8b
+guid: e57ed8edc0dc8bd48b5149cbb9f727c0
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - slime: {instanceID: 0}
-  - bird: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
