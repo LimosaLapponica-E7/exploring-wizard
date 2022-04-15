@@ -22,8 +22,8 @@ public class FlockingManager : MonoBehaviour
     [Range(1f, 100f)]
     public float maxSpeed = 5f;
 
-    [Range(1f, 10f)]
-    public float neighborRadius = 0.5f;
+    [Range(0f, 10f)]
+    public float neighborRadius = 1.5f;
 
     [Range(0f, 1f)]
     public float avoidanceRadiusMultiplier = 0.5f;
@@ -46,8 +46,7 @@ public class FlockingManager : MonoBehaviour
            FlockAgent newAgent = Instantiate(
                 flockUnit,
                 Random.insideUnitCircle * numUnits * flockDensity,
-               // Quaternion.Euler(Vector3.forward * Random.Range(0f, 360f)),
-               Quaternion.Euler(Vector3.forward * 0f),
+                Quaternion.Euler(Vector3.forward * Random.Range(0f,360f)),
                 transform);
             newAgent.name = "flockUnit " + i;
             agents.Add(newAgent);
@@ -68,7 +67,7 @@ public class FlockingManager : MonoBehaviour
             move *= driveFactor;
             if(move.sqrMagnitude > squareMaxSpeed)
             {
-                move = move.normalized * squareMaxSpeed;
+                move = move.normalized * maxSpeed;
             }
             agent.Move(move);
 
