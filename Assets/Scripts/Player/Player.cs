@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     
     [SerializeField] private float moveSpeed = 4f;
     [SerializeField] private Rigidbody2D playerBody;
+    [SerializeField] private AudioSource playerHitSound;
+
     float speedLimiter = 0.7f;
     float inputHorizontal;
     float inputVertical;
@@ -17,8 +19,6 @@ public class Player : MonoBehaviour
     {
         instance = this;
     } 
-
- 
 
     void Start()
     {
@@ -47,10 +47,25 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Slime"){
-            PlayerStats.playerStats.dealDamage(5f);
+            PlayerStats.instance.dealDamage(5f);
+            playerHitSound.Play();
+        }
+        if (collision.gameObject.tag == "Obstacle"){
+            PlayerStats.instance.dealDamage(2f);
+            collision.gameObject.GetComponent<AudioSource>().Play();
+        }
+        if (collision.gameObject.tag == "Gold")
+        {
+            PlayerStats.instance.giveGold(5);
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.tag == "Health")
+        {
+            PlayerStats.instance.healCharacter(5);
+            Destroy(gameObject);
         }
     }
 }
