@@ -7,7 +7,8 @@ public class Player : MonoBehaviour
     
     [SerializeField] private float moveSpeed = 4f;
     [SerializeField] private Rigidbody2D playerBody;
-    [SerializeField] private AudioSource obstacleCrash;
+    [SerializeField] private AudioSource playerHitSound;
+
     float speedLimiter = 0.7f;
     float inputHorizontal;
     float inputVertical;
@@ -53,6 +54,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Slime"){
             PlayerStats.instance.dealDamage(5f);
+            playerHitSound.Play();
         }
         if (collision.gameObject.tag == "Obstacle"){
             PlayerStats.instance.dealDamage(2f);
@@ -62,7 +64,6 @@ public class Player : MonoBehaviour
         {
             PlayerStats.instance.giveGold(5);
             Destroy(gameObject);
-            Debug.Log("Hit Gold");
         }
     }
 }
