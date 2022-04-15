@@ -95,11 +95,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1111442f9c8c0eea335197b77630cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacleDensity: 5.6
+  obstacleDensity: 3.5
   terrain: {fileID: 6621581150787719012}
   obstacles:
   - {fileID: 8839656213870271170, guid: b25cb96b60204f56f974a42bcd9533a9, type: 3}
   - {fileID: 596607246556828844, guid: 6bfcb41cce54279f2b8ce7d3caec1c15, type: 3}
   - {fileID: 541106138637120512, guid: 0d7c83d0eed0955f68024890d8b70b25, type: 3}
-  player: {fileID: 0}
   minDistFromPlayer: 3.5
