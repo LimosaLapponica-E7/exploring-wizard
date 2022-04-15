@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     
     [SerializeField] private float moveSpeed = 4f;
     [SerializeField] private Rigidbody2D playerBody;
+    [SerializeField] private AudioSource obstacleCrash;
     float speedLimiter = 0.7f;
     float inputHorizontal;
     float inputVertical;
@@ -55,6 +56,7 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.tag == "Obstacle"){
             PlayerStats.instance.dealDamage(2f);
+            collision.gameObject.GetComponent<AudioSource>().Play();
         }
         if (collision.gameObject.tag == "Gold")
         {
