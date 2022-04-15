@@ -11,10 +11,6 @@ public class FlockingManager : MonoBehaviour
     [Range(3, 250)]
     public int numUnits = 10;
 
-    public Vector2 flockLimits = new Vector2(5, 5);
-
-
-
     const float flockDensity = 0.08f;
     [Range(1f,100f)]
     public float driveFactor = 10f;
@@ -22,7 +18,7 @@ public class FlockingManager : MonoBehaviour
     [Range(1f, 100f)]
     public float maxSpeed = 5f;
 
-    [Range(0f, 10f)]
+    [Range(1f, 10f)]
     public float neighborRadius = 1.5f;
 
     [Range(0f, 1f)]
@@ -37,7 +33,7 @@ public class FlockingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        squareMaxSpeed = squareMaxSpeed * squareMaxSpeed;
+        squareMaxSpeed = maxSpeed * maxSpeed;
         squareNeighborRadius = neighborRadius * neighborRadius;
         squareAvoidanceRadius = squareNeighborRadius * avoidanceRadiusMultiplier * avoidanceRadiusMultiplier;
 

@@ -6,6 +6,9 @@ using UnityEngine;
 public class CohesionBehavior : FlockBehavior
 {
 
+    Vector2 currentVelocity;
+    public float agentSmoothTime = 0.5f;
+
     //find the middle point between all our neighbors, then try to move there
     public override Vector2 CalculateMove(FlockAgent agent, List<Transform> context, FlockingManager flock)
     {
@@ -23,6 +26,7 @@ public class CohesionBehavior : FlockBehavior
 
         //create offset from agent transform
         cohesionMove -= (Vector2)agent.transform.position;
+        cohesionMove = Vector2.SmoothDamp(agent.transform.up, cohesionMove, ref currentVelocity, agentSmoothTime);
         return cohesionMove;
     }
 

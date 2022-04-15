@@ -2091,7 +2091,7 @@ MonoBehaviour:
   slime: {fileID: 4295578118190388007, guid: fb56ec040fdf698848a778b71c7df55b, type: 3}
   slimeRate: 12
   bird: {fileID: 5228149370842586898, guid: 78ed8534eec59064fa16f05d270a91b2, type: 3}
-  birdRate: 2
+  birdRate: 0
 --- !u!82 &1295754194
 AudioSource:
   m_ObjectHideFlags: 0
