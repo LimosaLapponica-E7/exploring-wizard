@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class EnemyRecieveDamage : MonoBehaviour
 {
     public float health;
     public float maxHealth;
     public GameObject healthBar;
     public Slider healthBarSlider;
+
     public GameObject lootDrop;
+
+    public GameObject potionDrop;
 
     // Start is called before the first frame update
     void Start()
@@ -32,12 +34,21 @@ public class EnemyRecieveDamage : MonoBehaviour
             health = maxHealth;
         }
     }
-
+    float six;
     private void CheckDeath()
     {
         if (health <= 0)
         {
-            Instantiate(lootDrop, transform.position, Quaternion.identity);
+            
+            if (Random.Range(0,6) == six)
+            {
+                Instantiate(potionDrop, transform.position, Quaternion.identity);
+                Debug.Log("Instantiated Potion");
+            }
+            else
+            {
+                Instantiate(lootDrop, transform.position, Quaternion.identity);
+            }
             StatUI.UpdateEnemyDefeatCount();
             gameObject.GetComponent<AudioSource>().Play();
             Destroy(gameObject, 0.55f);

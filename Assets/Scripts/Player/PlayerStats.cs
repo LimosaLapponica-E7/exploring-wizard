@@ -41,6 +41,7 @@ public class PlayerStats : MonoBehaviour
     {
         health += heal;
         CheckOverheal();
+        healthBarSlider.value = CalculateHealthPercentage();
     }
 
     private void CheckOverheal()

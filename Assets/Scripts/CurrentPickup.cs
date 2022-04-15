@@ -19,9 +19,11 @@ public class CurrentPickup : MonoBehaviour
             {
                 PlayerStats.instance.giveGold(5);
             }
-            else if (currentObject == PickupObject.POTION)
+            if (currentObject == PickupObject.POTION)
             {
-                PlayerStats.instance.potion += pickupQuantity;
+                PlayerStats.instance.healCharacter(10f);
+                Destroy(gameObject);
+                Debug.Log("Stuff working");
             }
             rewardSound = GameObject.Find("Reward Sound").GetComponent<AudioSource>();
             rewardSound.Play();

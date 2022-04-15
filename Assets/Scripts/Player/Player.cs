@@ -65,5 +65,10 @@ public class Player : MonoBehaviour
             PlayerStats.instance.giveGold(5);
             Destroy(gameObject);
         }
+        if (collision.gameObject.tag == "Health")
+        {
+            PlayerStats.instance.healCharacter(5);
+            Destroy(gameObject);
+        }
     }
 }
