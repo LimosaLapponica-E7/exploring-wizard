@@ -18,7 +18,7 @@ public class FlockingManager : MonoBehaviour
     [Range(1f, 100f)]
     public float maxSpeed = 5f;
 
-    [Range(1f, 10f)]
+    [Range(0f, 10f)]
     public float neighborRadius = 1.5f;
 
     [Range(0f, 1f)]

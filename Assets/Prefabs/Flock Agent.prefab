@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5239441922129510078}
   - component: {fileID: 329402556143097102}
   - component: {fileID: 1345408727320112564}
+  - component: {fileID: -4804592857257333708}
   m_Layer: 0
   m_Name: Flock Agent
   m_TagString: Untagged
@@ -61,6 +62,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f256ae8a42e82345b147a726b26af26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4804592857257333708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5239441922129510077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21afe75460c33745805ef23bef57195, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 1
+  healthBar: {fileID: 9156616303747685377, guid: 743c2eceb0c8423448c0a60a18d10550, type: 3}
+  healthBarSlider: {fileID: 2457388258681724666, guid: 1687f2e118aced343acdc9a32a6e5dc9, type: 3}
+  lootDrop: {fileID: 6759456009748762491, guid: 3ea867f0e9461c144b65f8bc5ee2fd97, type: 3}
+  potionDrop: {fileID: 5904649025948215442, guid: bffcdc85c6d54ad4caddff11ade201af, type: 3}
 --- !u!1 &5239441923284166008
 GameObject:
   m_ObjectHideFlags: 0
