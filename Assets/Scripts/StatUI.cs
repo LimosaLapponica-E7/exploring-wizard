@@ -11,21 +11,23 @@ public class StatUI : MonoBehaviour
     [SerializeField] private TMP_Text levelNumber;
     [SerializeField] private TMP_Text gold;
     [SerializeField] private TMP_Text enemiesKilled;
-    [SerializeField] private TMP_Text attackSpeed;
 
     public GameObject restartButton;
     public GameObject uponDeathUI;
     public GameObject playerHealthBar;
 
     static int enemyDefeatCount;
+    static int playerLevel;
+
     void Start()
     {
         enemyDefeatCount = 0;
         uponDeathUI.SetActive(false);
     }
-    public void UpdateLevelNumber(float count)
+    public void UpdateLevelNumber()
     {
-        levelNumber.text = "Level:" + count;
+        playerLevel++;
+        levelNumber.text = "Level:" + getPlayerLevel();
     }
 
     public void UpdateGoldNumber(float count)
@@ -37,12 +39,15 @@ public class StatUI : MonoBehaviour
     {
         enemyDefeatCount++;
         PlayerStats.instance.addExperience(5);
-        Debug.Log("Made it too UpdateEnemy DefeatCount");
-
     }
 
     int getEnemyDefeatCount() {
         return enemyDefeatCount;
+    }
+
+    int getPlayerLevel()
+    {
+        return playerLevel;
     }
 
     public void UponPlayerDeathDisplayUI()

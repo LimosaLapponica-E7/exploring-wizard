@@ -68,4 +68,16 @@ public class Player : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void IncreaseMovementSpeed()
+    {
+        moveSpeed = moveSpeed + 1f;
+        Debug.Log("Move Speed increased by " + moveSpeed);
+    }
+
+    public void IncreaseAttackSpeed()
+    {
+        Debug.Log("Attack Speed increased by ");
+    }
+
 }

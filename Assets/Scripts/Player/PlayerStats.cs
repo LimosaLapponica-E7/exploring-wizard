@@ -14,19 +14,20 @@ public class PlayerStats : MonoBehaviour
     public float health;
     public float maxHealth;
 
-    public GameObject healthBar;
-    public Slider healthBarSlider;
-
-    public GameObject experienceBar;
-    public Slider experienceSlider;
-
     public float experience;
     public float maxExperience;
 
     public float goldNumber;
     public int potion;
 
+    public GameObject healthBar;
+    public Slider healthBarSlider;
+
+    public GameObject experienceBar;
+    public Slider experienceSlider;
+
     public GameObject StatUI;
+    public GameObject LevelUpUI;
     void Start()
     {
         goldNumber = 0;
@@ -77,13 +78,19 @@ public class PlayerStats : MonoBehaviour
            StatUI.GetComponent<StatUI>().UponPlayerDeathDisplayUI();
         }
     }
-
+    public void IncreaseHealth()
+    {
+        maxHealth = maxHealth *  1.10f;
+        Debug.Log("Max Health increased " + maxHealth);
+    }
     private void CheckLevelUp()
     {
         if (experience >= maxExperience)
         {
-            playerLevel++;
+            StatUI.GetComponent<StatUI>().UpdateLevelNumber();
+            LevelUpUI.GetComponent<LevelUpUI>().ShowLevelUpUI();
             experience = 0;
+            maxExperience = maxExperience * 2;
         }
     }
 

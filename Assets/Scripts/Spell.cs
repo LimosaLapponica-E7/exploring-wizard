@@ -87,5 +87,12 @@ public class Spell : MonoBehaviour
             Destroy(toDestroy);
         }
     }
+
+    // Called from LevelUp UI
+    public void IncreaseDamage()
+    {
+        maxDamage = maxDamage + 5f;
+        Debug.Log("Max Damage increased by " + maxDamage);
+    }
 }
 
