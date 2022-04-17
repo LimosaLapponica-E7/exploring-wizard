@@ -22,10 +22,11 @@ public class EnemySpawner : MonoBehaviour
 
     void spawnBird()
     {
-        Vector2 randomPoint = Random.insideUnitCircle * 200;
+        Vector2 randomPoint = Random.insideUnitCircle * 200 * Random.Range(4.0f,8.0f);
         Instantiate(bird, randomPoint, Quaternion.identity);
         timesincebird = 0;
     }
+
 
 
     // Start is called before the first frame update
