@@ -9,21 +9,30 @@ public class PlayerStats : MonoBehaviour
 
     public GameObject Player;
 
+    public float playerLevel;
+
     public float health;
     public float maxHealth;
 
     public GameObject healthBar;
     public Slider healthBarSlider;
 
+    public GameObject experienceBar;
+    public Slider experienceSlider;
+
+    public float experience;
+    public float maxExperience;
+
     public float goldNumber;
     public int potion;
 
     public GameObject StatUI;
-
     void Start()
     {
         goldNumber = 0;
+        experience = 0;
         health = maxHealth;
+        experienceSlider.value = CalculateExperiencePercentage();
     }
     private void Awake()
     {
@@ -58,6 +67,7 @@ public class PlayerStats : MonoBehaviour
         StatUI.GetComponent<StatUI>().UpdateGoldNumber(goldNumber);
     }
 
+
     private void CheckDeath()
     {
         if (health <= 0)
@@ -68,9 +78,30 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    private void CheckLevelUp()
+    {
+        if (experience >= maxExperience)
+        {
+            playerLevel++;
+            experience = 0;
+        }
+    }
+
     private float CalculateHealthPercentage()
     {
         return (health / maxHealth);
+    }
+
+
+    public void addExperience(float ep)
+    {
+        experience += ep;
+        CheckLevelUp();
+        experienceSlider.value = CalculateExperiencePercentage();
+    }
+    private float CalculateExperiencePercentage()
+    {
+        return (experience / maxExperience);
     }
     // Update is called once per frame
     void Update()

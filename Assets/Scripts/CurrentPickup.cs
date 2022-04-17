@@ -23,7 +23,6 @@ public class CurrentPickup : MonoBehaviour
             {
                 PlayerStats.instance.healCharacter(10f);
                 Destroy(gameObject);
-                Debug.Log("Stuff working");
             }
             rewardSound = GameObject.Find("Reward Sound").GetComponent<AudioSource>();
             rewardSound.Play();

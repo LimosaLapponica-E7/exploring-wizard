@@ -14,7 +14,10 @@ public class Spell : MonoBehaviour
     public float spellForce;
 
     private float timesincespell = 0.0f;
-    private float secondspershot = 0.2f;
+
+    [SerializeField]
+    [Range(0f,5f)]
+    float secondspershot = 0.2f;
 
     [SerializeField] private AudioSource fireSound;
     [SerializeField] private AudioSource fireInPlaceSound;

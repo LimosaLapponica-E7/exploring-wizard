@@ -34,13 +34,12 @@ public class EnemyRecieveDamage : MonoBehaviour
             health = maxHealth;
         }
     }
-    float six;
+    float num;
     private void CheckDeath()
     {
         if (health <= 0)
         {
-
-            if (Random.Range(0, 6) == six)
+            if (Random.Range(0, 6) == num)
             {
                 Reward(potionDrop);
             }

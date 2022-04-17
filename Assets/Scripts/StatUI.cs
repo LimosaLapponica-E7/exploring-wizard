@@ -35,7 +35,10 @@ public class StatUI : MonoBehaviour
 
     public static void UpdateEnemyDefeatCount()
     {
-        enemyDefeatCount++;        
+        enemyDefeatCount++;
+        PlayerStats.instance.addExperience(5);
+        Debug.Log("Made it too UpdateEnemy DefeatCount");
+
     }
 
     int getEnemyDefeatCount() {
