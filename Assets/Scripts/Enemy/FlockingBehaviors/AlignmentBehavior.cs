@@ -10,7 +10,9 @@ public class AlignmentBehavior : FlockBehavior
     {
         //if no neighbors, maintain our current
         if (context.Count == 0)
+        {
             return agent.transform.up;
+        }
 
         //add all points together and average
         Vector2 alignmentMove = Vector2.zero;
