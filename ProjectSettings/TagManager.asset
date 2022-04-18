@@ -8,6 +8,7 @@ TagManager:
   - Slime
   - Obstacle
   - Health
+  - Bird
   layers:
   - Default
   - TransparentFX

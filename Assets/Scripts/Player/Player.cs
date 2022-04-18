@@ -53,6 +53,13 @@ public class Player : MonoBehaviour
             PlayerStats.instance.dealDamage(5f);
             playerHitSound.Play();
         }
+
+        if (collision.gameObject.tag == "Bird")
+        {
+            PlayerStats.instance.dealDamage(3f);
+            playerHitSound.Play();
+        }
+
         if (collision.gameObject.tag == "Obstacle"){
             PlayerStats.instance.dealDamage(2f);
             collision.gameObject.GetComponent<AudioSource>().Play();
