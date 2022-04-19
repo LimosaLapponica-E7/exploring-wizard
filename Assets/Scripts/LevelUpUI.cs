@@ -19,30 +19,38 @@ public class LevelUpUI : MonoBehaviour
 
     public void ShowLevelUpUI()
     {
-        uponLevelUpUI.SetActive(true);
+        SetUIActive(true);
     }
+
+    private void SetUIActive(bool isActive)
+    {
+        uponLevelUpUI.SetActive(isActive);
+        Time.timeScale = isActive ? 0 : 1;
+    }
+
     public void IncreaseMovementSpeed()
     {
         Player.instance.IncreaseMovementSpeed();
-        uponLevelUpUI.SetActive(false);
+        SetUIActive(false);
+
     }
 
     // Currently not working need to set up in the Player or Spell Script
     public void IncreaseAttackSpeed()
     {
         Player.instance.IncreaseAttackSpeed();
-        uponLevelUpUI.SetActive(false);
+        SetUIActive(false);
     }
 
     public void IncreaseHealth()
     {
         PlayerStats.instance.IncreaseHealth();
-        uponLevelUpUI.SetActive(false);
+        SetUIActive(false);
     }
 
     // Currently not working need to set up in the Player or Spell Script
     public void IncreaseDamage()
     {
-        uponLevelUpUI.SetActive(false);
+        SetUIActive(false);
     }
 }

@@ -19,6 +19,13 @@ public class EnemyRecieveDamage : MonoBehaviour
         health = maxHealth;
     }
 
+    void Update()
+    {
+        healthBarSlider.transform.rotation = Quaternion.identity;
+        Vector3 enemyPos = gameObject.transform.position;
+        healthBarSlider.transform.position = enemyPos.SetY(enemyPos.y - 0.4f);
+    }
+
     public void DealDamage(float damage)
     {
         healthBar.SetActive(true);
@@ -55,7 +62,11 @@ public class EnemyRecieveDamage : MonoBehaviour
     private void Reward(GameObject playerReward)
     {
         StatUI.UpdateEnemyDefeatCount();
-        gameObject.GetComponent<AudioSource>().Play();
+        Component audioEnemy = gameObject.GetComponent<AudioSource>();
+        if (audioEnemy)
+        {
+            gameObject.GetComponent<AudioSource>().Play();
+        }
         Destroy(gameObject, 0.55f);
         StartCoroutine(slimeTremble());
         StartCoroutine(Wait(0.5f, playerReward));
