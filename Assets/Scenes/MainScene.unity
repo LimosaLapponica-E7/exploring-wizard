@@ -3860,6 +3860,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileTypes:
   - {fileID: 6621581150787719013, guid: 0135656a378ab6fe98fd28921bf54c89, type: 3}
+  - {fileID: 6257899940069792300, guid: b609c86e33dd6283989b9ea75dc47f50, type: 3}
   player: {fileID: 1295754191}
   tileSize: 32
 --- !u!4 &1718518389

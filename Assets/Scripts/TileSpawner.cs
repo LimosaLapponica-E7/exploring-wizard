@@ -16,7 +16,7 @@ public class TileSpawner : MonoBehaviour
     {
         GameObject startingTileType = tileTypes[0]; // Pick the first tile
         currentTilePos = new Vector2(0, 0);
-        AddNewTile(startingTileType, currentTilePos);
+        AddNewTile(currentTilePos);
         populatedTilePos.Add(currentTilePos);
     }
 
@@ -25,9 +25,6 @@ public class TileSpawner : MonoBehaviour
         // Run these computations every 15 frames
         if (Time.frameCount % 15 == 0)
         {
-
-            GameObject startingTileType = tileTypes[0];
-
             if (Vector2.Distance(currentTilePos, player.position) > tileSize / 2 - 10)
             {
                 currentTilePos = getCurrentTile(player.position);
@@ -53,15 +50,15 @@ public class TileSpawner : MonoBehaviour
                         {
                             // If not yet generated, add tile behind (counterclockwise) the corner tile 
                             if (tileIsFree(tilePosSide(mod((i - 1), 8))))
-                                AddNewTile(startingTileType, tilePosSide(mod((i - 1), 8)));
+                                AddNewTile(tilePosSide(mod((i - 1), 8)));
 
                             // If not yet generated, add corner tile
                             if (tileIsFree(tilePosCorner(i)))
-                                AddNewTile(startingTileType, tilePosCorner(i));
+                                AddNewTile(tilePosCorner(i));
 
                             // If not yet generated, add tile in front (counterclockwise) the corner tile
                             if (tileIsFree(tilePosSide(i + 1)))
-                                AddNewTile(startingTileType, tilePosSide(i + 1));
+                                AddNewTile(tilePosSide(i + 1));
                         }
                         // If the position is odd, we are far from a corner.
                         // Generate one tile in front of the player.
@@ -69,7 +66,7 @@ public class TileSpawner : MonoBehaviour
                         {
                             if (tileIsFree(tilePosSide(i)))
                             {
-                                AddNewTile(startingTileType, tilePosSide(i));
+                                AddNewTile(tilePosSide(i));
                             }
 
                         }
@@ -124,8 +121,9 @@ public class TileSpawner : MonoBehaviour
             Mathf.Sin(ang) * tileSize * 1.41421356237f) + currentTilePos;
     }
 
-    void AddNewTile(GameObject tileType, Vector2 pos)
+    void AddNewTile(Vector2 pos)
     {
+        GameObject tileType = tileTypes[Random.Range(0, tileTypes.Length)];
         GameObject newTile = Instantiate(tileType, pos, Quaternion.identity);
         // Change tile size so that it is a tileSize * tileSize square.
         newTile.GetComponent<SpriteRenderer>().size = new Vector2(tileSize, tileSize);
