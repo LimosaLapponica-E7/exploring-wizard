@@ -6,64 +6,72 @@ public class TileSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] tileTypes;
     [SerializeField] private Transform player;
-    [SerializeField] private int tileSize;
+    [Range(25,50)] public int tileSize;
     private Vector2 currentTilePos;
     private int tileCounter;
     private Vector2[] surroundingTilePos = new Vector2[8];
-    private bool[] surroundingTileOccupancy = new bool[8];
+    private List<Vector2> populatedTilePos = new List<Vector2>();
 
     void Start()
     {
         GameObject startingTileType = tileTypes[0]; // Pick the first tile
         currentTilePos = new Vector2(0, 0);
         AddNewTile(startingTileType, currentTilePos);
+        populatedTilePos.Add(currentTilePos);
     }
 
     void Update()
     {
-        GameObject startingTileType = tileTypes[0];
-        if (Vector2.Distance(currentTilePos, player.position) > tileSize / 2 - 13)
+        // Run these computations every 15 frames
+        if (Time.frameCount % 15 == 0)
         {
-            float angle = Mathf.Atan2(player.position.y - currentTilePos.y,
-            player.position.x - currentTilePos.x);
-            if(angle < 0) angle += 2 * Mathf.PI;
 
-            /* Check 8 positions surrounding the square (45 degrees apart).
-               Position 0 begins at 22.5 degrees and ends at 67.5. ETC.
-               This arrangement allows us to generate three new tiles when
-               the player is near a corner, but only one new tile when it is
-               far away from any corner.
-            */
-            for (int i = 0; i < 8; i++)
+            GameObject startingTileType = tileTypes[0];
+
+            if (Vector2.Distance(currentTilePos, player.position) > tileSize / 2 - 10)
             {
-                if (angle > Mathf.PI / 4 * i + 0.3926991f &&
-                angle <= Mathf.PI / 4 * (i + 1) + 0.3926991f)
+                currentTilePos = getCurrentTile(player.position);
+                float angle = Mathf.Atan2(player.position.y - currentTilePos.y,
+                player.position.x - currentTilePos.x);
+                if (angle < 0) angle += 2 * Mathf.PI; // Deal with positive angles
+
+                /* Check 8 positions surrounding the square (45 degrees apart).
+                   Position 0 begins at 22.5 degrees and ends at 67.5. ETC.
+                   This arrangement allows us to generate three new tiles when
+                   the player is near a corner, but only one new tile when it is
+                   far away from any corner.
+                */
+                for (int i = 0; i < 8; i++)
                 {
-                    if (surroundingTileOccupancy[i] == false)
+                    if (angle > Mathf.PI / 4 * i + 0.3926991f &&
+                        angle <= Mathf.PI / 4 * (i + 1) + 0.3926991f)
                     {
-                        // If the position number is even, we are near a corner.
-                        // Generate three tiles to be safe.
+                        /* If the position number is even, we are near a corner.
+                           Generate three tiles to be safe:
+                           One at the corner, and one on each side of the corner. */
                         if ((i & 1) == 0)
                         {
-                            if (surroundingTileOccupancy[mod((i - 1), 8)] == false)
-                            {
-                                surroundingTileOccupancy[mod((i - 1), 8)] = true;
+                            // If not yet generated, add tile behind (counterclockwise) the corner tile 
+                            if (tileIsFree(tilePosSide(mod((i - 1), 8))))
                                 AddNewTile(startingTileType, tilePosSide(mod((i - 1), 8)));
-                            }
-                            surroundingTileOccupancy[i] = true;
-                            AddNewTile(startingTileType, tilePosCorner(i));
-                            if (surroundingTileOccupancy[i + 1] == false)
-                            {
-                                surroundingTileOccupancy[i + 1] = true;
+
+                            // If not yet generated, add corner tile
+                            if (tileIsFree(tilePosCorner(i)))
+                                AddNewTile(startingTileType, tilePosCorner(i));
+
+                            // If not yet generated, add tile in front (counterclockwise) the corner tile
+                            if (tileIsFree(tilePosSide(i + 1)))
                                 AddNewTile(startingTileType, tilePosSide(i + 1));
-                            }
                         }
                         // If the position is odd, we are far from a corner.
-                        // Generate one tile.
+                        // Generate one tile in front of the player.
                         else
                         {
-                            AddNewTile(startingTileType, tilePosSide(i));
-                            surroundingTileOccupancy[i] = true;
+                            if (tileIsFree(tilePosSide(i)))
+                            {
+                                AddNewTile(startingTileType, tilePosSide(i));
+                            }
+
                         }
                     }
                 }
@@ -71,28 +79,49 @@ public class TileSpawner : MonoBehaviour
         }
     }
 
+    Vector2 getCurrentTile(Vector2 playerPos)
+    {
+        float minDistance = tileSize;
+        int tileIndex = 0;
+        for (int i = 0; i < populatedTilePos.Count; i++)
+        {
+            float distance = Vector2.Distance(populatedTilePos[i], playerPos);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                tileIndex = i;
+            }
+        }
+        return populatedTilePos[tileIndex];
+    }
+
+    bool tileIsFree(Vector2 pos)
+    {
+        foreach (Vector2 tilePos in populatedTilePos)
+        {
+            if (tilePos == pos)
+                return false;
+        }
+        return true;
+    }
+
     int mod(float x, float y)
     {
-        return (int) (x - y * Mathf.Floor(x / y));
+        return (int)(x - y * Mathf.Floor(x / y));
     }
 
     Vector2 tilePosSide(int i)
     {
         float ang = Mathf.PI / 4 + i * Mathf.PI / 4;
-        print("tile side degrees " + ang * (180 / Mathf.PI));
-        // print("tile side position " + new Vector2(Mathf.Cos(ang) * tileSize,
-        //    Mathf.Sin(ang) * tileSize));
-        return new Vector2(Mathf.Cos(ang) * tileSize, Mathf.Sin(ang) * tileSize);
+        return new Vector2(Mathf.Cos(ang) * tileSize, Mathf.Sin(ang) * tileSize)
+        + currentTilePos;
     }
 
     Vector2 tilePosCorner(int i)
     {
         float ang = Mathf.PI / 4 + i * Mathf.PI / 4;
-        print("corner degrees" + ang * (180 / Mathf.PI));
-        // print("corner position " + new Vector2(Mathf.Cos(ang) * tileSize * 1.41421356237f,
-        //     Mathf.Sin(ang) * tileSize * 1.41421356237f));
         return new Vector2(Mathf.Cos(ang) * tileSize * 1.41421356237f,
-            Mathf.Sin(ang) * tileSize * 1.41421356237f);
+            Mathf.Sin(ang) * tileSize * 1.41421356237f) + currentTilePos;
     }
 
     void AddNewTile(GameObject tileType, Vector2 pos)
@@ -101,5 +130,8 @@ public class TileSpawner : MonoBehaviour
         // Change tile size so that it is a tileSize * tileSize square.
         newTile.GetComponent<SpriteRenderer>().size = new Vector2(tileSize, tileSize);
         newTile.GetComponent<ObstacleGenerator>().Generate();
+
+        // Add tile center position to list of populated tiles
+        populatedTilePos.Add(pos);
     }
 }
