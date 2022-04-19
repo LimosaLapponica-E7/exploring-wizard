@@ -14,10 +14,8 @@ public class TileSpawner : MonoBehaviour
 
     void Start()
     {
-        GameObject startingTileType = tileTypes[0]; // Pick the first tile
         currentTilePos = new Vector2(0, 0);
         AddNewTile(currentTilePos);
-        populatedTilePos.Add(currentTilePos);
     }
 
     void Update()
