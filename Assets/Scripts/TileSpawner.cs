@@ -6,7 +6,7 @@ public class TileSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] tileTypes;
     [SerializeField] private Transform player;
-    [Range(25,50)] public int tileSize;
+    [Range(25, 50)] public int tileSize;
     private Vector2 currentTilePos;
     private int tileCounter;
     private Vector2[] surroundingTilePos = new Vector2[8];
@@ -108,15 +108,15 @@ public class TileSpawner : MonoBehaviour
     Vector2 tilePosSide(int i)
     {
         float ang = Mathf.PI / 4 + i * Mathf.PI / 4;
-        return new Vector2(Mathf.Cos(ang) * tileSize, Mathf.Sin(ang) * tileSize)
+        return new Vector2(Mathf.Round(Mathf.Cos(ang) * tileSize), Mathf.Round(Mathf.Sin(ang) * tileSize))
         + currentTilePos;
     }
 
     Vector2 tilePosCorner(int i)
     {
         float ang = Mathf.PI / 4 + i * Mathf.PI / 4;
-        return new Vector2(Mathf.Cos(ang) * tileSize * 1.41421356237f,
-            Mathf.Sin(ang) * tileSize * 1.41421356237f) + currentTilePos;
+        return new Vector2(Mathf.Round(Mathf.Cos(ang) * tileSize * 1.41421356237f),
+            Mathf.Round(Mathf.Sin(ang) * tileSize * 1.41421356237f)) + currentTilePos;
     }
 
     void AddNewTile(Vector2 pos)
