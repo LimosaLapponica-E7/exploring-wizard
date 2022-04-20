@@ -28,6 +28,8 @@ public class PlayerStats : MonoBehaviour
 
     public GameObject StatUI;
     public GameObject LevelUpUI;
+
+    AudioSource LevelupSound;
     void Start()
     {
         goldNumber = 0;
@@ -91,6 +93,8 @@ public class PlayerStats : MonoBehaviour
             LevelUpUI.GetComponent<LevelUpUI>().ShowLevelUpUI();
             experience = 0;
             maxExperience = maxExperience * 2;
+            LevelupSound = GameObject.Find("LevelUp").GetComponent<AudioSource>();
+            LevelupSound.Play();
         }
     }
 
