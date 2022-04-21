@@ -39,7 +39,7 @@ public class PlayerStats : MonoBehaviour
     }
     private void Awake()
     {
-            instance = this;
+        instance = this;
     }
 
     public void dealDamage(float damage)
@@ -75,14 +75,13 @@ public class PlayerStats : MonoBehaviour
     {
         if (health <= 0)
         {
-                Player.SetActive(false);
-
-           StatUI.GetComponent<StatUI>().UponPlayerDeathDisplayUI();
+            Player.SetActive(false);
+            StatUI.GetComponent<StatUI>().UponPlayerDeathDisplayUI();
         }
     }
     public void IncreaseHealth()
     {
-        maxHealth = maxHealth *  1.10f;
+        maxHealth = maxHealth * 1.10f;
         Debug.Log("Max Health increased " + maxHealth);
     }
     private void CheckLevelUp()
@@ -117,6 +116,6 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

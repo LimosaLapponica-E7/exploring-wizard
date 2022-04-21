@@ -5,15 +5,14 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float damage;
-    [SerializeField] private GameObject bullet; 
+    [SerializeField] private GameObject bullet;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(bullet);
-        if(collision.GetComponent<EnemyRecieveDamage>() != null &&
-        collision.GetComponent<EnemyRecieveDamage>().health > 0)
+        if (collision.GetComponent<EnemyRecieveDamage>() != null)
         {
             collision.GetComponent<EnemyRecieveDamage>().DealDamage(damage);
         }
+        Destroy(bullet);
     }
 }
