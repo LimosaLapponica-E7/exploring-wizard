@@ -8,6 +8,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float slimeRate; //how many we want to spawn per minute, theoretically can be changed midgame
 
     [SerializeField] GameObject bird;
+    [SerializeField] Transform player;
+    [SerializeField] private int minDistFromPlayer;
+    [SerializeField] private int maxDistFromPlayer;
     [SerializeField] float birdRate; //flocks per minute, will want to be able to change how many members of the flock we want
 
     private float timesincebird = 0.0f;
@@ -15,24 +18,20 @@ public class EnemySpawner : MonoBehaviour
 
     void spawnSlime()
     {
-        Vector2 randomPoint = Random.insideUnitCircle * 200;
-        Instantiate(slime, randomPoint, Quaternion.identity);
+        Instantiate(slime, randomSpawn(), Quaternion.identity);
         timesinceslime = 0;
     }
 
     void spawnBird()
     {
-        Vector2 randomPoint = Random.insideUnitCircle * 200 * Random.Range(4.0f,8.0f);
-        Instantiate(bird, randomPoint, Quaternion.identity);
+        Instantiate(bird, randomSpawn(), Quaternion.identity);
         timesincebird = 0;
     }
 
-
-
-    // Start is called before the first frame update
-    void Start()
+    Vector2 randomSpawn()
     {
-
+        return new Vector2(player.position.x + Random.Range(minDistFromPlayer, maxDistFromPlayer),
+           player.position.y + Random.Range(minDistFromPlayer, maxDistFromPlayer));
     }
 
     // Update is called once per frame
@@ -41,10 +40,8 @@ public class EnemySpawner : MonoBehaviour
         timesinceslime += Time.deltaTime;
         timesincebird += Time.deltaTime;
 
-
         if (timesinceslime > (60 / slimeRate))
             spawnSlime();
-
 
         if (timesincebird > (60 / birdRate))
             spawnBird();
