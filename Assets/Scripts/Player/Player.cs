@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioSource playerHitSound;
     [SerializeField] private int dealSlimeDamagePoints;
     [SerializeField] private int dealBirdDamagePoints;
+    [SerializeField] private int obstacleDamagePoints;
 
     float speedLimiter = 0.7f;
     float inputHorizontal;
@@ -65,7 +66,7 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.tag == "Obstacle")
         {
-            PlayerStats.instance.dealDamage(2);
+            PlayerStats.instance.dealDamage(obstacleDamagePoints);
             collision.gameObject.GetComponent<AudioSource>().Play();
         }
         if (collision.gameObject.tag == "Gold")
