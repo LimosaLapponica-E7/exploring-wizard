@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1111442f9c8c0eea335197b77630cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacleDensity: 4.46
+  obstacleDensity: 3.06
   terrain: {fileID: 4958353159079437320}
   terrainTransform: {fileID: 2990033145108413188}
   obstacles:

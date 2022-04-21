@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    
+
     [SerializeField] private float moveSpeed = 4f;
     [SerializeField] private Rigidbody2D playerBody;
     [SerializeField] private AudioSource playerHitSound;
@@ -18,11 +18,11 @@ public class Player : MonoBehaviour
     void Awake()
     {
         instance = this;
-    } 
+    }
 
     void Start()
     {
-    
+
     }
     void Update()
     {
@@ -31,8 +31,8 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate()
     {
-       
-        if (inputHorizontal != 0 || inputVertical != 0 )
+
+        if (inputHorizontal != 0 || inputVertical != 0)
         {
             if (inputHorizontal != 0 && inputVertical != 0)
             {
@@ -47,9 +47,11 @@ public class Player : MonoBehaviour
         }
     }
 
+
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Slime"){
+        if (collision.gameObject.tag == "Slime")
+        {
             PlayerStats.instance.dealDamage(5f);
             playerHitSound.Play();
         }
@@ -60,7 +62,8 @@ public class Player : MonoBehaviour
             playerHitSound.Play();
         }
 
-        if (collision.gameObject.tag == "Obstacle"){
+        if (collision.gameObject.tag == "Obstacle")
+        {
             PlayerStats.instance.dealDamage(2f);
             collision.gameObject.GetComponent<AudioSource>().Play();
         }

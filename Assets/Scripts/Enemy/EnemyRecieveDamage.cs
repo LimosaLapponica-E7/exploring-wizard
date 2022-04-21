@@ -68,17 +68,16 @@ public class EnemyRecieveDamage : MonoBehaviour
             gameObject.GetComponent<AudioSource>().Play();
         }
 
-        Destroy(gameObject, 0.55f);
         StartCoroutine(slimeTremble());
-
         StartCoroutine(Wait(0.5f, playerReward));
+        Destroy(gameObject, 0.55f);
     }
 
     //general damage tremble
     IEnumerator slimeTremble()
     {
         // Based on https://stackoverflow.com/a/65242499
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 6; i++)
         {
             transform.localPosition += new Vector3(0.1f, 0.1f, 0);
             yield return new WaitForSeconds(0.1f);

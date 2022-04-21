@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657832, g: 0.49641222, b: 0.57481664, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3142,11 +3142,11 @@ GameObject:
   - component: {fileID: 1295754191}
   - component: {fileID: 1295754190}
   - component: {fileID: 1295754192}
-  - component: {fileID: 1295754188}
   - component: {fileID: 1295754187}
   - component: {fileID: 1295754193}
   - component: {fileID: 1295754189}
   - component: {fileID: 1295754194}
+  - component: {fileID: 1295754188}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -3169,8 +3169,8 @@ MonoBehaviour:
   moveSpeed: 4
   playerBody: {fileID: 1295754189}
   playerHitSound: {fileID: 1195308902}
---- !u!61 &1295754188
-BoxCollider2D:
+--- !u!60 &1295754188
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3192,9 +3192,16 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.35, y: 0.45}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.17, y: 0.21}
+      - {x: -0.19999999, y: 0.17}
+      - {x: -0.19999999, y: -0.21}
+      - {x: -0.19, y: -0.24}
+      - {x: 0.17999999, y: -0.24}
+      - {x: 0.19999999, y: -0.21}
+      - {x: 0.19999999, y: 0.08}
+      - {x: 0.16, y: 0.21}
 --- !u!50 &1295754189
 Rigidbody2D:
   serializedVersion: 4
@@ -3297,8 +3304,8 @@ MonoBehaviour:
   spell: {fileID: 1913041697139890260, guid: ee695dd23c8648a4a9d13749f3e5e366, type: 3}
   minDamage: 3
   maxDamage: 5
-  projectileForce: 10
-  spellForce: 5
+  projectileForce: 15
+  spellForce: 10
   secondspershot: 0.01
   fireSound: {fileID: 1295754194}
   fireInPlaceSound: {fileID: 1609124009}
@@ -3315,8 +3322,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slime: {fileID: 4295578118190388007, guid: fb56ec040fdf698848a778b71c7df55b, type: 3}
-  slimeRate: 30
+  slimeRate: 25
   bird: {fileID: 5228149370842586898, guid: 78ed8534eec59064fa16f05d270a91b2, type: 3}
+  player: {fileID: 1295754191}
+  minDistFromPlayer: 7
+  maxDistFromPlayer: 25
   birdRate: 12
 --- !u!82 &1295754194
 AudioSource:
