@@ -51,6 +51,7 @@ public class LevelUpUI : MonoBehaviour
     // Currently not working need to set up in the Player or Spell Script
     public void IncreaseDamage()
     {
+        Bullet.instance.IncreaseDamage();
         SetUIActive(false);
     }
 }

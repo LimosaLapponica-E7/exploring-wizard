@@ -70,7 +70,7 @@ public class EnemyRecieveDamage : MonoBehaviour
 
         StartCoroutine(slimeTremble());
         StartCoroutine(Wait(0.5f, playerReward));
-        Destroy(gameObject, 0.55f);
+        Destroy(gameObject, 0.6f);
     }
 
     //general damage tremble
