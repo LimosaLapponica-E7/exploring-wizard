@@ -6,9 +6,8 @@ using UnityEngine.UI;
 public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats instance;
-
+    [SerializeField] private AudioSource LevelUpSound;
     public GameObject Player;
-
     public float playerLevel;
 
     public float health;
@@ -42,7 +41,7 @@ public class PlayerStats : MonoBehaviour
         instance = this;
     }
 
-    public void dealDamage(float damage)
+    public void dealDamage(int damage)
     {
         health -= damage;
         CheckDeath();
@@ -92,8 +91,7 @@ public class PlayerStats : MonoBehaviour
             LevelUpUI.GetComponent<LevelUpUI>().ShowLevelUpUI();
             experience = 0;
             maxExperience = maxExperience * 2;
-            LevelupSound = GameObject.Find("LevelUp").GetComponent<AudioSource>();
-            LevelupSound.Play();
+            LevelUpSound.Play();
         }
     }
 

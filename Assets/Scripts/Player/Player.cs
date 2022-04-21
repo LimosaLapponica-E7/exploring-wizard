@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float moveSpeed = 4f;
     [SerializeField] private Rigidbody2D playerBody;
     [SerializeField] private AudioSource playerHitSound;
+    [SerializeField] private int dealSlimeDamagePoints;
+    [SerializeField] private int dealBirdDamagePoints;
 
     float speedLimiter = 0.7f;
     float inputHorizontal;
@@ -47,24 +49,23 @@ public class Player : MonoBehaviour
         }
     }
 
-
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Slime")
         {
-            PlayerStats.instance.dealDamage(5f);
+            PlayerStats.instance.dealDamage(dealSlimeDamagePoints);
             playerHitSound.Play();
         }
 
         if (collision.gameObject.tag == "Bird")
         {
-            PlayerStats.instance.dealDamage(3f);
+            PlayerStats.instance.dealDamage(dealBirdDamagePoints);
             playerHitSound.Play();
         }
 
         if (collision.gameObject.tag == "Obstacle")
         {
-            PlayerStats.instance.dealDamage(2f);
+            PlayerStats.instance.dealDamage(2);
             collision.gameObject.GetComponent<AudioSource>().Play();
         }
         if (collision.gameObject.tag == "Gold")
@@ -87,7 +88,7 @@ public class Player : MonoBehaviour
 
     public void IncreaseAttackSpeed()
     {
-        Debug.Log("Attack Speed increased by ");
+
     }
 
 }
