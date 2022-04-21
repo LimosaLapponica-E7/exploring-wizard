@@ -23,7 +23,7 @@ public class TileSpawner : MonoBehaviour
         // Run these computations every 15 frames
         if (Time.frameCount % 15 == 0)
         {
-            if (Vector2.Distance(currentTilePos, player.position) > tileSize / 2 - 10)
+            if (Vector2.Distance(currentTilePos, player.position) > tileSize / 2 - 12)
             {
                 currentTilePos = getCurrentTile(player.position);
                 float angle = Mathf.Atan2(player.position.y - currentTilePos.y,
