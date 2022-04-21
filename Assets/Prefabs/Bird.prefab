@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6301354807873183476}
   - component: {fileID: 2660992379142296637}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bird
-  m_TagString: Untagged
+  m_TagString: Bird
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

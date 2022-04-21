@@ -41,9 +41,10 @@ public class FlockingManager : MonoBehaviour
         {
            FlockAgent newAgent = Instantiate(
                 flockUnit,
-                Random.insideUnitCircle * numUnits * flockDensity,
-                Quaternion.Euler(Vector3.forward * Random.Range(0f,360f)),
-                transform);
+                Random.insideUnitCircle * numUnits * flockDensity +  
+                    new Vector2(transform.position.x, transform.position.y),
+                    Quaternion.Euler(Vector3.forward * Random.Range(0f,360f)),
+                    transform);
             newAgent.name = "flockUnit " + i;
             agents.Add(newAgent);
         }
