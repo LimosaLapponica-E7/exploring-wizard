@@ -3137,11 +3137,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc708942d6bba844bf3f5f05cf97c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 3.5
   playerBody: {fileID: 1295754189}
   playerHitSound: {fileID: 1195308902}
-  dealSlimeDamagePoints: 0
-  dealBirdDamagePoints: 0
+  dealSlimeDamagePoints: 3
+  dealBirdDamagePoints: 1
 --- !u!60 &1295754188
 PolygonCollider2D:
   m_ObjectHideFlags: 0
