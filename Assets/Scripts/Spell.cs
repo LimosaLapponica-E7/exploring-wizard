@@ -26,6 +26,7 @@ public class Spell : MonoBehaviour
     void Update()
     {
         //reverse projectile
+        /*
         timesincespell += Time.deltaTime;
         if (Input.GetKeyDown("space")) //GetKeyDown instead of GetKey so that you have to perform a full press
         {
@@ -35,6 +36,7 @@ public class Spell : MonoBehaviour
             FireInPlace(direction * projectileForce);
             
         }
+        */
 
         //spells, you can aim these more easily
         if (timesincespell > secondspershot)

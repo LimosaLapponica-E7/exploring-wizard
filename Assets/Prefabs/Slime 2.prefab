@@ -318,7 +318,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &5317045560712821937
 MonoBehaviour:
@@ -332,7 +332,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c097b9af4aa92b4fb1fb8967ac5daf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   moveSpeed: 1
 --- !u!114 &5317045560712821936
 MonoBehaviour:
@@ -351,6 +350,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   healthBarSlider: {fileID: 0}
   lootDrop: {fileID: 0}
+  potionDrop: {fileID: 0}
 --- !u!61 &8189253653734253102
 BoxCollider2D:
   m_ObjectHideFlags: 0
