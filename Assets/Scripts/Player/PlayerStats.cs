@@ -8,7 +8,7 @@ public class PlayerStats : MonoBehaviour
     public static PlayerStats instance;
     [SerializeField] private AudioSource LevelUpSound;
     public GameObject Player;
-    public float playerLevel;
+    public int playerLevel;
 
     public float health;
     public float maxHealth;
@@ -91,6 +91,7 @@ public class PlayerStats : MonoBehaviour
             LevelUpUI.GetComponent<LevelUpUI>().ShowLevelUpUI();
             experience = 0;
             maxExperience = maxExperience * 2;
+            playerLevel++;
             LevelUpSound.Play();
         }
     }

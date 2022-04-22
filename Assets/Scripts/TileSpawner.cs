@@ -121,7 +121,9 @@ public class TileSpawner : MonoBehaviour
 
     void AddNewTile(Vector2 pos)
     {
-        GameObject tileType = tileTypes[Random.Range(0, tileTypes.Length)];
+        int landscapeIndex = PlayerStats.instance.playerLevel % tileTypes.Length;
+        print(landscapeIndex);
+        GameObject tileType = tileTypes[Random.Range(0, landscapeIndex + 1)];
         GameObject newTile = Instantiate(tileType, pos, Quaternion.identity);
         // Change tile size so that it is a tileSize * tileSize square.
         newTile.GetComponent<SpriteRenderer>().size = new Vector2(tileSize, tileSize);
