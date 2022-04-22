@@ -6,9 +6,8 @@ using UnityEngine.UI;
 public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats instance;
-
+    [SerializeField] private AudioSource LevelUpSound;
     public GameObject Player;
-
     public float playerLevel;
 
     public float health;
@@ -39,10 +38,10 @@ public class PlayerStats : MonoBehaviour
     }
     private void Awake()
     {
-            instance = this;
+        instance = this;
     }
 
-    public void dealDamage(float damage)
+    public void dealDamage(int damage)
     {
         health -= damage;
         CheckDeath();
@@ -75,14 +74,13 @@ public class PlayerStats : MonoBehaviour
     {
         if (health <= 0)
         {
-                Player.SetActive(false);
-
-           StatUI.GetComponent<StatUI>().UponPlayerDeathDisplayUI();
+            Player.SetActive(false);
+            StatUI.GetComponent<StatUI>().UponPlayerDeathDisplayUI();
         }
     }
     public void IncreaseHealth()
     {
-        maxHealth = maxHealth *  1.10f;
+        maxHealth = maxHealth * 1.10f;
         Debug.Log("Max Health increased " + maxHealth);
     }
     private void CheckLevelUp()
@@ -93,8 +91,7 @@ public class PlayerStats : MonoBehaviour
             LevelUpUI.GetComponent<LevelUpUI>().ShowLevelUpUI();
             experience = 0;
             maxExperience = maxExperience * 2;
-            LevelupSound = GameObject.Find("LevelUp").GetComponent<AudioSource>();
-            LevelupSound.Play();
+            LevelUpSound.Play();
         }
     }
 
@@ -117,6 +114,6 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

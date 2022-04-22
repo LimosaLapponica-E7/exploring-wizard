@@ -20,7 +20,7 @@ public class CameraFollow : MonoBehaviour
         if (targetObject.activeSelf)
         {
             Vector3 currentPos = mainTransform.position;
-            Vector3 smoothPos = Vector3.SmoothDamp(mainTransform.position, target.position, ref velocity, 0.075f);
+            Vector3 smoothPos = Vector3.SmoothDamp(mainTransform.position, target.position, ref velocity, 0.060f);
             currentPos.x = smoothPos.x;
             currentPos.y = smoothPos.y;
             mainTransform.position = currentPos;

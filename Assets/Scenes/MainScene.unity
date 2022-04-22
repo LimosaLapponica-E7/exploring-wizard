@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657832, g: 0.49641222, b: 0.57481664, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1711,133 +1711,6 @@ MonoBehaviour:
   mainTransform: {fileID: 794472336}
   target: {fileID: 1295754191}
   targetObject: {fileID: 1295754186}
---- !u!1 &865053860
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 865053862}
-  - component: {fileID: 865053861}
-  m_Layer: 0
-  m_Name: LevelUP Sound
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &865053861
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865053860}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2667a0a008b044e218b63df62e2be749, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!4 &865053862
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865053860}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &917391530
 GameObject:
   m_ObjectHideFlags: 0
@@ -2543,6 +2416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1162049891}
   - component: {fileID: 1162049892}
+  - component: {fileID: 1162049893}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2577,12 +2451,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c386b35008c195147a4f45726ebbe201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelUpSound: {fileID: 1162049893}
   Player: {fileID: 1295754186}
   playerLevel: 0
   health: 0
   maxHealth: 30
   experience: 0
-  maxExperience: 25
+  maxExperience: 100
   goldNumber: 0
   potion: 0
   healthBar: {fileID: 700285936}
@@ -2591,6 +2466,102 @@ MonoBehaviour:
   experienceSlider: {fileID: 1029261287}
   StatUI: {fileID: 1039888918}
   LevelUpUI: {fileID: 146253094}
+--- !u!82 &1162049893
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162049890}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4a7716564e2f9c249a412d56cb842b63, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1195308901
 GameObject:
   m_ObjectHideFlags: 0
@@ -3142,11 +3113,11 @@ GameObject:
   - component: {fileID: 1295754191}
   - component: {fileID: 1295754190}
   - component: {fileID: 1295754192}
-  - component: {fileID: 1295754188}
   - component: {fileID: 1295754187}
   - component: {fileID: 1295754193}
   - component: {fileID: 1295754189}
   - component: {fileID: 1295754194}
+  - component: {fileID: 1295754188}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -3166,11 +3137,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc708942d6bba844bf3f5f05cf97c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 3.5
   playerBody: {fileID: 1295754189}
   playerHitSound: {fileID: 1195308902}
---- !u!61 &1295754188
-BoxCollider2D:
+  dealSlimeDamagePoints: 3
+  dealBirdDamagePoints: 2
+  obstacleDamagePoints: 1
+--- !u!60 &1295754188
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3192,9 +3166,16 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.35, y: 0.45}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.17, y: 0.21}
+      - {x: -0.19999999, y: 0.17}
+      - {x: -0.19999999, y: -0.21}
+      - {x: -0.19, y: -0.24}
+      - {x: 0.17999999, y: -0.24}
+      - {x: 0.19999999, y: -0.21}
+      - {x: 0.19999999, y: 0.08}
+      - {x: 0.16, y: 0.21}
 --- !u!50 &1295754189
 Rigidbody2D:
   serializedVersion: 4
@@ -3297,8 +3278,8 @@ MonoBehaviour:
   spell: {fileID: 1913041697139890260, guid: ee695dd23c8648a4a9d13749f3e5e366, type: 3}
   minDamage: 3
   maxDamage: 5
-  projectileForce: 10
-  spellForce: 5
+  projectileForce: 15
+  spellForce: 10
   secondspershot: 0.01
   fireSound: {fileID: 1295754194}
   fireInPlaceSound: {fileID: 1609124009}
@@ -3315,8 +3296,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slime: {fileID: 4295578118190388007, guid: fb56ec040fdf698848a778b71c7df55b, type: 3}
-  slimeRate: 30
+  slimeRate: 25
   bird: {fileID: 5228149370842586898, guid: 78ed8534eec59064fa16f05d270a91b2, type: 3}
+  player: {fileID: 1295754191}
+  minDistFromPlayer: 7
+  maxDistFromPlayer: 25
   birdRate: 12
 --- !u!82 &1295754194
 AudioSource:
