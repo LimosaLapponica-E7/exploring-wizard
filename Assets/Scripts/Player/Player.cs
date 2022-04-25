@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
 
     [SerializeField] private float moveSpeed = 4f;
-    [SerializeField] private Rigidbody2D playerBody;
+    [SerializeField] private Rigidbody2D rb;
     [SerializeField] private AudioSource playerHitSound;
     [SerializeField] private int dealSlimeDamagePoints;
     [SerializeField] private int dealBirdDamagePoints;
@@ -18,6 +18,20 @@ public class Player : MonoBehaviour
 
     public static Player instance;
 
+    /// <summary>
+    /// Dodge distance/speed that gets processed every frame. Might wanna keep this low! 
+    /// </summary>
+    private float _dodgeSpeed = 6000;
+
+    /// <summary>
+    /// How long dodges last.
+    /// </summary>
+    private float _dodgeTime = .25f;
+
+    /// <summary>
+    /// Reference to the dodging coroutine.
+    /// </summary>
+    private Coroutine _dodging;
     void Awake()
     {
         instance = this;
@@ -31,30 +45,52 @@ public class Player : MonoBehaviour
     {
         inputHorizontal = Input.GetAxisRaw("Horizontal");
         inputVertical = Input.GetAxisRaw("Vertical");
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && _dodging == null)
+        {
+            _dodging = StartCoroutine(DodgeCoroutine());
+ 
+        }
     }
     void FixedUpdate()
+{
+
+    if (inputHorizontal != 0 || inputVertical != 0)
     {
 
         if (inputHorizontal != 0 || inputVertical != 0)
         {
-            if (inputHorizontal != 0 && inputVertical != 0)
-            {
-                inputHorizontal *= speedLimiter;
-                inputVertical *= speedLimiter;
-            }
-            playerBody.velocity = new Vector2(inputHorizontal * moveSpeed, inputVertical * moveSpeed);
+            inputHorizontal *= speedLimiter;
+            inputVertical *= speedLimiter;
         }
-        else
-        {
-            playerBody.velocity = new Vector2(0f, 0f);
-        }
+        rb.velocity = new Vector2(inputHorizontal * moveSpeed, inputVertical * moveSpeed);
+    }
+    else
+    {
+        rb.velocity = new Vector2(0f, 0f);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+
+}
+
+private IEnumerator DodgeCoroutine()
+{
+    var endOfFrame = new WaitForEndOfFrame();
+    var rigidbody = GetComponent<Rigidbody2D>();
+
+    for (float timer = 0; timer < _dodgeTime; timer += Time.deltaTime)
     {
-        if (collision.gameObject.tag == "Slime")
-        {
-            PlayerStats.instance.dealDamage(dealSlimeDamagePoints);
+        rigidbody.MovePosition(transform.position + (transform.forward * (moveSpeed * Time.deltaTime)));
+
+            yield return endOfFrame;
+    }
+    _dodging = null;
+}
+
+void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Slime"){
+            PlayerStats.instance.dealDamage(5);
             playerHitSound.Play();
         }
 
@@ -72,11 +108,6 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Gold")
         {
             PlayerStats.instance.giveGold(5);
-            Destroy(gameObject);
-        }
-        if (collision.gameObject.tag == "Health")
-        {
-            PlayerStats.instance.healCharacter(5);
             Destroy(gameObject);
         }
     }
