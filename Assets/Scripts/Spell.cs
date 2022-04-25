@@ -26,17 +26,17 @@ public class Spell : MonoBehaviour
     void Update()
     {
         //reverse projectile
-        /*
+
         timesincespell += Time.deltaTime;
-        if (Input.GetKeyDown("space")) //GetKeyDown instead of GetKey so that you have to perform a full press
+  /*      if (Input.GetKeyDown("space")) //GetKeyDown instead of GetKey so that you have to perform a full press
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 myPos = transform.position;
             Vector2 direction = (mousePos - myPos).normalized;
             FireInPlace(direction * projectileForce);
-            
-        }
-        */
+
+        }*/
+
 
         //spells, you can aim these more easily
         if (timesincespell > secondspershot)
