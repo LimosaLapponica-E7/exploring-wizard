@@ -80,7 +80,7 @@ public class PlayerStats : MonoBehaviour
     }
     public void IncreaseHealth()
     {
-        maxHealth = maxHealth * 1.10f;
+        maxHealth = maxHealth + 5f;
         Debug.Log("Max Health increased " + maxHealth);
     }
     private void CheckLevelUp()

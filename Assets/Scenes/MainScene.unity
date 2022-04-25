@@ -3276,7 +3276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 1913041697139890260, guid: ee695dd23c8648a4a9d13749f3e5e366, type: 3}
   spell: {fileID: 1913041697139890260, guid: ee695dd23c8648a4a9d13749f3e5e366, type: 3}
-  minDamage: 3
+  minDamage: 5
   maxDamage: 5
   projectileForce: 15
   spellForce: 10
@@ -3296,7 +3296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slime: {fileID: 4295578118190388007, guid: fb56ec040fdf698848a778b71c7df55b, type: 3}
-  slimeRate: 25
+  slimeRate: 20
   bird: {fileID: 5228149370842586898, guid: 78ed8534eec59064fa16f05d270a91b2, type: 3}
   player: {fileID: 1295754191}
   minDistFromPlayer: 7

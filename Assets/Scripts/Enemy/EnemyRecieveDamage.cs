@@ -24,6 +24,14 @@ public class EnemyRecieveDamage : MonoBehaviour
         healthBarSlider.transform.rotation = Quaternion.identity;
         Vector3 enemyPos = gameObject.transform.position;
         healthBarSlider.transform.position = enemyPos.SetY(enemyPos.y - 0.4f);
+
+        // Somehow change slime color so that they look tougher
+        // Maybe this slime could have a spit attack also 
+      /*  if (PlayerStats.playerLevel >= 3)
+        {
+            maxHealth = maxHealth + 10;
+            health = maxHealth;
+        }*/
     }
 
     public void DealDamage(float damage)

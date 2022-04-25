@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 6830734204115484611}
     - target: {fileID: 5317045560712821936, guid: 7eaf4b7dc883285418edc82749cb6131, type: 3}
       propertyPath: maxHealth
-      value: 40
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5317045560712821936, guid: 7eaf4b7dc883285418edc82749cb6131, type: 3}
       propertyPath: potionDrop
