@@ -17,10 +17,14 @@ public class Spell : MonoBehaviour
 
     [SerializeField]
     [Range(0f,5f)]
-    float secondspershot = 0.2f;
+    float secondspershot = .75f;
 
     [SerializeField] private AudioSource fireSound;
     [SerializeField] private AudioSource fireInPlaceSound;
+    void Start()
+    {
+        secondspershot = .75f;
+    }
 
     // Update is called once per frame
     void Update()
@@ -91,10 +95,11 @@ public class Spell : MonoBehaviour
     }
 
     // Called from LevelUp UI
-    public void IncreaseDamage()
+    public void IncreaseAttackSpeed()
     {
-        maxDamage = maxDamage + 5f;
-        Debug.Log("Max Damage increased by " + maxDamage);
+        secondspershot = secondspershot *  .80f;
+        Debug.Log("IncreaseAttackSpeed was called" + secondspershot);
+
     }
 }
 

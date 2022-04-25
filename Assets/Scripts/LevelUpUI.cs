@@ -38,7 +38,7 @@ public class LevelUpUI : MonoBehaviour
     // Currently not working need to set up in the Player or Spell Script
     public void IncreaseAttackSpeed()
     {
-        Player.instance.IncreaseAttackSpeed();
+        /*Spell.IncreaseAttackSpeed();*/
         SetUIActive(false);
     }
 

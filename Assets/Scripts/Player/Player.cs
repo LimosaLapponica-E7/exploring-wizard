@@ -87,9 +87,4 @@ public class Player : MonoBehaviour
         Debug.Log("Move Speed increased by " + moveSpeed);
     }
 
-    public void IncreaseAttackSpeed()
-    {
-
-    }
-
 }
