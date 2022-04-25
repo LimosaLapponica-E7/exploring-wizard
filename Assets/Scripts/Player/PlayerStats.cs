@@ -90,7 +90,7 @@ public class PlayerStats : MonoBehaviour
             StatUI.GetComponent<StatUI>().UpdateLevelNumber();
             LevelUpUI.GetComponent<LevelUpUI>().ShowLevelUpUI();
             experience = 0;
-            maxExperience = maxExperience * 2;
+            maxExperience = maxExperience * 1.25f;
             playerLevel++;
             LevelUpSound.Play();
         }

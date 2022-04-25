@@ -16,14 +16,14 @@ public class Spell : MonoBehaviour
     private float timesincespell = 0.0f;
 
     [SerializeField]
-    [Range(0f,5f)]
-    float secondspershot = .75f;
+    [Range(0f, 5f)]
+    float secondspershot;
 
     [SerializeField] private AudioSource fireSound;
     [SerializeField] private AudioSource fireInPlaceSound;
     void Start()
     {
-        secondspershot = .75f;
+        secondspershot = .50f;
     }
 
     // Update is called once per frame
