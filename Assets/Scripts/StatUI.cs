@@ -6,8 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class StatUI : MonoBehaviour
 {
-
-
+    [SerializeField] private TMP_Text levelNumberUI;
     [SerializeField] private TMP_Text levelNumber;
     [SerializeField] private TMP_Text gold;
     [SerializeField] private TMP_Text enemiesKilled;
@@ -27,7 +26,9 @@ public class StatUI : MonoBehaviour
     public void UpdateLevelNumber()
     {
         playerLevel++;
+        levelNumberUI.text = "" + getPlayerLevel();
         levelNumber.text = "Level:" + getPlayerLevel();
+        Debug.Log("Player Level" + playerLevel);
     }
 
     public void UpdateGoldNumber(float count)
