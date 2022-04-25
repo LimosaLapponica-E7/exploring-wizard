@@ -83,7 +83,7 @@ public class Player : MonoBehaviour
 
     public void IncreaseMovementSpeed()
     {
-        moveSpeed = moveSpeed + 1f;
+        moveSpeed = moveSpeed * 1.25f;
         Debug.Log("Move Speed increased by " + moveSpeed);
     }
 
