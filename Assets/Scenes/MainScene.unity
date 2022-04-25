@@ -3286,7 +3286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eddb4ee90010c0459e72efb100f9fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1913041697139890260, guid: ee695dd23c8648a4a9d13749f3e5e366, type: 3}
+  bomb: {fileID: 4686531529689892918, guid: a36cb4f0ce749734fbb6af93430dce16, type: 3}
   spell: {fileID: 1913041697139890260, guid: ee695dd23c8648a4a9d13749f3e5e366, type: 3}
   minDamage: 5
   maxDamage: 5

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spell : MonoBehaviour
 {
-    public GameObject projectile;
+    public GameObject bomb;
     public GameObject spell;
 
     public float minDamage;
@@ -32,14 +32,11 @@ public class Spell : MonoBehaviour
         //reverse projectile
 
         timesincespell += Time.deltaTime;
-  /*      if (Input.GetKeyDown("space")) //GetKeyDown instead of GetKey so that you have to perform a full press
+        if (Input.GetKeyDown("space")) //GetKeyDown instead of GetKey so that you have to perform a full press
         {
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 myPos = transform.position;
-            Vector2 direction = (mousePos - myPos).normalized;
-            FireInPlace(direction * projectileForce);
-
-        }*/
+            DropBomb();
+        }
 
 
         //spells, you can aim these more easily
@@ -79,11 +76,10 @@ public class Spell : MonoBehaviour
             fireSound.Play();
         }
 
-        void FireInPlace(Vector2 direction)
+        void DropBomb()
         {
-            GameObject projectileInstance = Instantiate(projectile, transform.position, Quaternion.identity);
-            projectileInstance.GetComponent<Rigidbody2D>().velocity = direction;
-            StartCoroutine(Expire(projectileInstance, 3f));
+            GameObject projectileInstance = Instantiate(bomb, transform.position, Quaternion.identity);
+            StartCoroutine(Explode(projectileInstance, 3f, 2));
             fireInPlaceSound.Play();
         }
 
@@ -92,6 +88,14 @@ public class Spell : MonoBehaviour
             yield return new WaitForSeconds(seconds);
             Destroy(toDestroy);
         }
+
+        IEnumerator Explode(GameObject bomb, float timer, float explosionRadius)
+        {
+            yield return new WaitForSeconds(timer);
+            Destroy(bomb);
+        }
+
+
     }
 
     // Called from LevelUp UI
