@@ -3292,9 +3292,13 @@ MonoBehaviour:
   maxDamage: 5
   projectileForce: 15
   spellForce: 10
+  bombForce: 1000
   secondspershot: 0.01
   fireSound: {fileID: 1295754194}
   fireInPlaceSound: {fileID: 1609124009}
+  LayerForBombs:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &1295754193
 MonoBehaviour:
   m_ObjectHideFlags: 0

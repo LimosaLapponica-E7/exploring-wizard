@@ -12,6 +12,7 @@ public class Spell : MonoBehaviour
 
     public float projectileForce;
     public float spellForce;
+    public float bombForce;
 
     private float timesincespell = 0.0f;
 
@@ -21,6 +22,8 @@ public class Spell : MonoBehaviour
 
     [SerializeField] private AudioSource fireSound;
     [SerializeField] private AudioSource fireInPlaceSound;
+
+    public LayerMask LayerForBombs;
     void Start()
     {
         secondspershot = .50f;
@@ -72,14 +75,14 @@ public class Spell : MonoBehaviour
         {
             GameObject projectileInstance = Instantiate(spell, transform.position, Quaternion.identity);
             projectileInstance.GetComponent<Rigidbody2D>().velocity = direction;
-            StartCoroutine(Expire(projectileInstance, 3f));
+            StartCoroutine(Expire(projectileInstance, 6f));
             fireSound.Play();
         }
 
         void DropBomb()
         {
             GameObject projectileInstance = Instantiate(bomb, transform.position, Quaternion.identity);
-            StartCoroutine(Explode(projectileInstance, 3f, 2));
+            StartCoroutine(Explode(projectileInstance, 2f, 5));
             fireInPlaceSound.Play();
         }
 
@@ -91,8 +94,16 @@ public class Spell : MonoBehaviour
 
         IEnumerator Explode(GameObject bomb, float timer, float explosionRadius)
         {
+            Collider2D[] objects = Physics2D.OverlapCircleAll(transform.position, explosionRadius, LayerForBombs);
             yield return new WaitForSeconds(timer);
+            Debug.Log("explosion");
+            foreach(Collider2D obj in objects)
+            {
+                Vector2 direction = obj.transform.position - transform.position;
+                obj.GetComponent<Rigidbody2D>().AddForce(direction * bombForce);
+            }
             Destroy(bomb);
+
         }
 
 
