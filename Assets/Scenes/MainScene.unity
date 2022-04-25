@@ -3313,7 +3313,7 @@ MonoBehaviour:
   player: {fileID: 1295754191}
   minDistFromPlayer: 7
   maxDistFromPlayer: 25
-  birdRate: 12
+  birdRate: 2
 --- !u!82 &1295754194
 AudioSource:
   m_ObjectHideFlags: 0
