@@ -3862,11 +3862,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bomb: {fileID: 4686531529689892918, guid: a36cb4f0ce749734fbb6af93430dce16, type: 3}
   spell: {fileID: 1913041697139890260, guid: ee695dd23c8648a4a9d13749f3e5e366, type: 3}
-  minDamage: 5
-  maxDamage: 5
+  minDamage: 0
+  maxDamage: 0
   projectileForce: 15
   spellForce: 10
-  bombForce: 1000
+  bombForce: 400
+  bombDamage: 20
+  bombRadius: 2
+  bombTimerInSeconds: 1.5
   secondspershot: 0.01
   fireSound: {fileID: 1295754194}
   fireInPlaceSound: {fileID: 1609124009}

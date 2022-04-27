@@ -9,10 +9,15 @@ public class Spell : MonoBehaviour
 
     public float minDamage;
     public float maxDamage;
+    
 
     public float projectileForce;
     public float spellForce;
+
     public float bombForce;
+    public float bombDamage;
+    public float bombRadius;
+    public float bombTimerInSeconds;
 
     private float timesincespell = 0.0f;
 
@@ -82,7 +87,7 @@ public class Spell : MonoBehaviour
         void DropBomb()
         {
             GameObject projectileInstance = Instantiate(bomb, transform.position, Quaternion.identity);
-            StartCoroutine(Explode(projectileInstance, 2f, 5));
+            StartCoroutine(Explode(projectileInstance, bombTimerInSeconds, bombRadius, bombDamage));
             fireInPlaceSound.Play();
         }
 
@@ -92,15 +97,17 @@ public class Spell : MonoBehaviour
             Destroy(toDestroy);
         }
 
-        IEnumerator Explode(GameObject bomb, float timer, float explosionRadius)
+        IEnumerator Explode(GameObject bomb, float timer, float explosionRadius, float damage)
         {
-            Collider2D[] objects = Physics2D.OverlapCircleAll(transform.position, explosionRadius, LayerForBombs);
+            Vector2 bombLocation = transform.position;
             yield return new WaitForSeconds(timer);
             Debug.Log("explosion");
-            foreach(Collider2D obj in objects)
+            Collider2D[] objects = Physics2D.OverlapCircleAll(bombLocation, explosionRadius, LayerForBombs);
+            foreach (Collider2D obj in objects)
             {
-                Vector2 direction = obj.transform.position - transform.position;
+                Vector2 direction =  (Vector2)obj.transform.position - bombLocation;
                 obj.GetComponent<Rigidbody2D>().AddForce(direction * bombForce);
+                obj.GetComponent<EnemyRecieveDamage>().DealDamage(damage);
             }
             Destroy(bomb);
 
