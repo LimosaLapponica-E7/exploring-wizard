@@ -17,6 +17,7 @@ public class PlayerStats : MonoBehaviour
     public float maxExperience;
 
     public float goldNumber;
+    public float bombNumber;
     public int potion;
 
     public GameObject healthBar;
@@ -26,6 +27,7 @@ public class PlayerStats : MonoBehaviour
     public Slider experienceSlider;
 
     public GameObject StatUI;
+    public GameObject BombUI;
     public GameObject LevelUpUI;
 
     AudioSource LevelupSound;
@@ -63,12 +65,29 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    public void buyBomb()
+    {
+        bombNumber++;
+        goldNumber = goldNumber - 10f;
+        updateGoldCount();
+    }
+
+    public void useBomb()
+    {
+        bombNumber--;
+        BombUI.GetComponent<BombUI>().UpdateBombNumber(bombNumber);
+    }
     public void giveGold(float gold)
     {
         goldNumber = goldNumber + gold;
-        StatUI.GetComponent<StatUI>().UpdateGoldNumber(goldNumber);
+        updateGoldCount();
     }
 
+    private void updateGoldCount()
+    {
+        StatUI.GetComponent<StatUI>().UpdateGoldNumber(goldNumber);
+        BombUI.GetComponent<BombUI>().UpdateGold(goldNumber);
+    }
 
     private void CheckDeath()
     {

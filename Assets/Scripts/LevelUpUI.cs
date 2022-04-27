@@ -28,6 +28,10 @@ public class LevelUpUI : MonoBehaviour
         Time.timeScale = isActive ? 0 : 1;
     }
 
+    public void BuyBomb()
+    {
+        SetUIActive(true);
+    }
     public void IncreaseMovementSpeed()
     {
         Player.instance.IncreaseMovementSpeed();
