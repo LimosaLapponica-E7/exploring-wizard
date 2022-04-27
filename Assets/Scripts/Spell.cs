@@ -14,6 +14,9 @@ public class Spell : MonoBehaviour
     public float projectileForce;
     public float spellForce;
 
+    [SerializeField]
+    public GameObject[] explosionAnims;
+
     public float bombForce;
     public float bombDamage;
     public float bombRadius;
@@ -101,8 +104,10 @@ public class Spell : MonoBehaviour
         {
             Vector2 bombLocation = transform.position;
             yield return new WaitForSeconds(timer);
+            GameObject explosion = Instantiate(explosionAnims[Random.Range(0, explosionAnims.Length)], (Vector2)bombLocation, Quaternion.identity);
             Debug.Log("explosion");
             Collider2D[] objects = Physics2D.OverlapCircleAll(bombLocation, explosionRadius, LayerForBombs);
+            //Instantiate
             foreach (Collider2D obj in objects)
             {
                 Vector2 direction =  (Vector2)obj.transform.position - bombLocation;
@@ -110,6 +115,8 @@ public class Spell : MonoBehaviour
                 obj.GetComponent<EnemyRecieveDamage>().DealDamage(damage);
             }
             Destroy(bomb);
+            yield return new WaitForSeconds(5f);
+            Destroy(explosion);
 
         }
 

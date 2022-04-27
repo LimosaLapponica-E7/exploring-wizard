@@ -3866,6 +3866,11 @@ MonoBehaviour:
   maxDamage: 0
   projectileForce: 15
   spellForce: 10
+  explosionAnims:
+  - {fileID: 233326810842825211, guid: 57b9fd34033707542be790b56bc65178, type: 3}
+  - {fileID: 6381216639947297790, guid: 4dbc3856a40016c49941cfca79c34a42, type: 3}
+  - {fileID: 4110906969008327915, guid: 1de91bc5036a67344990d23cbb665db3, type: 3}
+  - {fileID: 2751934149938321408, guid: 92666d01ddf5fa345b8870e839916329, type: 3}
   bombForce: 400
   bombDamage: 20
   bombRadius: 2
