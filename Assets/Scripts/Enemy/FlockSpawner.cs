@@ -2,19 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class FlockSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject enemy;
-    [SerializeField] float enemyRate; //how many we want to spawn per minute, theoretically can be changed midgame
+    [SerializeField] GameObject flock;
+    [SerializeField] float flockRate;
     [SerializeField] Transform player;
     [SerializeField] private int minDistFromPlayer;
     [SerializeField] private int maxDistFromPlayer;
-    private float timeSinceEnemy = 0.0f;
 
-    void spawnEnemy()
+    private float timeSinceFlock = 0.0f;
+
+    void spawnFlock()
     {
-        Instantiate(enemy, randomSpawn(), Quaternion.identity);
-        timeSinceEnemy = 0;
+        Instantiate(flock, randomSpawn(), Quaternion.identity);
+        timeSinceFlock = 0;
     }
 
     Vector2 randomSpawn()
@@ -22,12 +23,12 @@ public class EnemySpawner : MonoBehaviour
         return new Vector2(player.position.x + Random.Range(minDistFromPlayer, maxDistFromPlayer),
            player.position.y + Random.Range(minDistFromPlayer, maxDistFromPlayer));
     }
-
     void Update()
     {
-        timeSinceEnemy += Time.deltaTime;
+        timeSinceFlock += Time.deltaTime;
 
-        if (timeSinceEnemy > (60 / enemyRate))
-            spawnEnemy();
+        if (timeSinceFlock > (60 / flockRate))
+            spawnFlock();
+
     }
 }
