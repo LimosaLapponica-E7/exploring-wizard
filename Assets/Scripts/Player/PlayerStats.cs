@@ -43,6 +43,11 @@ public class PlayerStats : MonoBehaviour
         instance = this;
     }
 
+    void Update()
+    {
+        StatUI.GetComponent<StatUI>().CheckPause();
+    }
+
     public void dealDamage(int damage)
     {
         health -= damage;
@@ -136,10 +141,5 @@ public class PlayerStats : MonoBehaviour
     private float CalculateExperiencePercentage()
     {
         return (experience / maxExperience);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
