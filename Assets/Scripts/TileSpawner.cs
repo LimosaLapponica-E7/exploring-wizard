@@ -6,7 +6,7 @@ public class TileSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] tileTypes;
     [SerializeField] private Transform player;
-    [Range(25, 50)] public int tileSize;
+    [Range(25, 50)] public float tileSize;
     private Vector2 currentTilePos;
     private int tileCounter;
     private Vector2[] surroundingTilePos = new Vector2[8];
@@ -72,6 +72,34 @@ public class TileSpawner : MonoBehaviour
                 }
             }
         }
+
+        // Destroy old landscapes every 1000 frames
+        if (Time.frameCount % 1000 == 0)
+            destroyDistantObjects();
+    }
+
+    void destroyDistantObjects()
+    {
+        for (int i = 0; i < populatedTilePos.Count; i++)
+        {
+            if ((Vector2.Distance(populatedTilePos[i], player.position)) > 2 * tileSize)
+            {
+                destroyObjects(populatedTilePos[i]);
+                populatedTilePos.RemoveAt(i);
+            }
+        }
+    }
+
+    // Adapted from http://answers.unity.com/answers/1155767/view.html
+    void destroyObjects(Vector2 blastZone)
+    {
+        // Get an array containing the colliders of objects in a region
+        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(blastZone, new Vector2(tileSize, tileSize), 0f);
+
+        // Destroy each item in the array
+        print("Destroyed item num " + hitColliders.Length);
+        for (int i = 0; i < hitColliders.Length; i++)
+            Destroy(hitColliders[i].gameObject);
     }
 
     Vector2 getCurrentTile(Vector2 playerPos)
@@ -127,6 +155,11 @@ public class TileSpawner : MonoBehaviour
         GameObject newTile = Instantiate(tileType, pos, Quaternion.identity);
         // Change tile size so that it is a tileSize * tileSize square.
         newTile.GetComponent<SpriteRenderer>().size = new Vector2(tileSize, tileSize);
+
+        /* The collider is used for finding old tiles to destroy. 
+           It is smaller than the tile itself because the destruction system searches an area with 
+           boxed in tileSize and we only want to destroy one tile at a time */
+        newTile.GetComponent<BoxCollider2D>().size = new Vector2(tileSize * 0.8f, tileSize * 0.8f);
         newTile.GetComponent<ObstacleGenerator>().Generate();
 
         // Add tile center position to list of populated tiles
