@@ -22,16 +22,18 @@ public class LevelUpUI : MonoBehaviour
         SetUIActive(true);
     }
 
+    public void buyBombTest()
+    {
+        PlayerStats.instance.buyBomb();
+    }
+
+
     private void SetUIActive(bool isActive)
     {
         uponLevelUpUI.SetActive(isActive);
         Time.timeScale = isActive ? 0 : 1;
     }
 
-    public void BuyBomb()
-    {
-        SetUIActive(true);
-    }
     public void IncreaseMovementSpeed()
     {
         Player.instance.IncreaseMovementSpeed();

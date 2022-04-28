@@ -70,6 +70,8 @@ public class PlayerStats : MonoBehaviour
         bombNumber++;
         goldNumber = goldNumber - 10f;
         updateGoldCount();
+        BombUI.GetComponent<BombUI>().UpdateBombNumber(bombNumber);
+        Debug.Log("Bought Bomb");
     }
 
     public void useBomb()
