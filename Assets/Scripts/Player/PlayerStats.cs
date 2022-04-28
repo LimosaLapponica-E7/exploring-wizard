@@ -87,6 +87,8 @@ public class PlayerStats : MonoBehaviour
     {
         StatUI.GetComponent<StatUI>().UpdateGoldNumber(goldNumber);
         BombUI.GetComponent<BombUI>().UpdateGold(goldNumber);
+        BombUI.GetComponent<BombUI>().UpdateBombNumber(bombNumber);
+
     }
 
     private void CheckDeath()
@@ -111,7 +113,11 @@ public class PlayerStats : MonoBehaviour
             experience = 0;
             maxExperience = maxExperience * 1.25f;
             playerLevel++;
+            BombUI.GetComponent<BombUI>().UpdateLevelNumber(playerLevel);
+            bombNumber++;
+            updateGoldCount();
             LevelUpSound.Play();
+
         }
     }
 

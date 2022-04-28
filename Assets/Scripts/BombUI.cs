@@ -5,6 +5,7 @@ using TMPro;
 
 public class BombUI : MonoBehaviour
 {
+    [SerializeField] private TMP_Text levelNumber;
     [SerializeField] private TMP_Text bombCounter;
     [SerializeField] private TMP_Text goldNumber;
 
@@ -13,6 +14,10 @@ public class BombUI : MonoBehaviour
 
         }
 
+    public void UpdateLevelNumber(float count)
+    {
+        levelNumber.text = "Level:" + count;
+    }
     public void UpdateBombNumber(float count)
     {
         bombCounter.text = ":" + count;

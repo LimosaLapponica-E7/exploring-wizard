@@ -89,9 +89,18 @@ public class Spell : MonoBehaviour
 
         void DropBomb()
         {
-            GameObject projectileInstance = Instantiate(bomb, transform.position, Quaternion.identity);
-            StartCoroutine(Explode(projectileInstance, bombTimerInSeconds, bombRadius, bombDamage));
-            fireInPlaceSound.Play();
+            if(PlayerStats.instance.bombNumber > 0)
+            {
+                GameObject projectileInstance = Instantiate(bomb, transform.position, Quaternion.identity);
+                StartCoroutine(Explode(projectileInstance, bombTimerInSeconds, bombRadius, bombDamage));
+                fireInPlaceSound.Play();
+                PlayerStats.instance.useBomb();
+            }
+            else
+            {
+                print("Do not have any bombs to fire");
+            }
+
         }
 
         IEnumerator Expire(GameObject toDestroy, float seconds)
