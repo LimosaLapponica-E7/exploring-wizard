@@ -1,16 +1,7 @@
 fileFormatVersion: 2
-guid: 443335980c10e8fb3b088cd2d8723804
+guid: 6d1a83989fcb0d214b8fc49a51643a65
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -8121366107567134370
-    second: DungeonSlime_0
-  - first:
-      213: 405402318033181724
-    second: DungeonSlime_1
-  - first:
-      213: -8842649413738966689
-    second: DungeonSlime_2
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -51,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -98,7 +89,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -111,70 +102,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: DungeonSlime_0
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 0
-        width: 25
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e596093dd8c1b4f80800000000000000
-      internalID: -8121366107567134370
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DungeonSlime_1
-      rect:
-        serializedVersion: 2
-        x: 28
-        y: 0
-        width: 26
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c1cdc75a24740a500800000000000000
-      internalID: 405402318033181724
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DungeonSlime_2
-      rect:
-        serializedVersion: 2
-        x: 56
-        y: 0
-        width: 26
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f51d5c46539984580800000000000000
-      internalID: -8842649413738966689
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -185,10 +113,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      DungeonSlime_0: -8121366107567134370
-      DungeonSlime_1: 405402318033181724
-      DungeonSlime_2: -8842649413738966689
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
