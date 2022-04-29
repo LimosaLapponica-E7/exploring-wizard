@@ -137,6 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   dealSlimeDamagePoints: 5
+  SlimeBulletSound: {fileID: 8046407001737895980, guid: ac872ce9973ccb0f6863e08a905bcd54, type: 3}
 --- !u!61 &3376387402835675520
 BoxCollider2D:
   m_ObjectHideFlags: 0

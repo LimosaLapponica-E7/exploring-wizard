@@ -9,6 +9,7 @@ public class EnemyProjectile : MonoBehaviour
     private Transform player;
     private Vector2 target;
     [SerializeField] private int dealSlimeDamagePoints;
+    [SerializeField] AudioSource SlimeBulletSound;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class EnemyProjectile : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             PlayerStats.instance.dealDamage(dealSlimeDamagePoints);
+            SlimeBulletSound.Play();
             DestroyProjectile();
         }
     }
