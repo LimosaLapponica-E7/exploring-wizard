@@ -134,8 +134,6 @@ public class Spell : MonoBehaviour
     public void IncreaseAttackSpeed()
     {
         secondspershot = secondspershot * .80f;
-        Debug.Log("IncreaseAttackSpeed was called" + secondspershot);
-
     }
 }
 

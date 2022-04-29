@@ -53,7 +53,6 @@ public class StatUI : MonoBehaviour
         playerLevel++;
         levelNumberUI.text = " " + getPlayerLevel();
         levelNumber.text = "Level: " + getPlayerLevel();
-        Debug.Log("Player Level" + playerLevel);
     }
 
     public void UpdateGoldNumber(float count)

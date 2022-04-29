@@ -20,7 +20,6 @@ public class EnemyProjectile : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            print("It Working");
             PlayerStats.instance.dealDamage(dealSlimeDamagePoints);
             DestroyProjectile();
         }
@@ -29,8 +28,6 @@ public class EnemyProjectile : MonoBehaviour
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
-
-
 
         if (transform.position.x == target.x && transform.position.y == target.y)
         {

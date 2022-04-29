@@ -136,8 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  dealSlimeDamagePoints: 10
-  bullet: {fileID: 5743570707905604558}
+  dealSlimeDamagePoints: 5
 --- !u!61 &3376387402835675520
 BoxCollider2D:
   m_ObjectHideFlags: 0
