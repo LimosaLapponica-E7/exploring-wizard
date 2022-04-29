@@ -85,7 +85,7 @@ public class StatUI : MonoBehaviour
     public void UpdateDamage()
     {
         damageStat++;
-        movementSpeed.text = "Damage: " + damageStat;
+        damage.text = "Damage: " + damageStat;
     }
 
     int getEnemyDefeatCount() {
@@ -104,11 +104,6 @@ public class StatUI : MonoBehaviour
         restartButton.SetActive(displayRestart);
     }
 
-/*    private void SetUIActive(bool game_paused)
-    {
-        uponDeathUI.SetActive(game_paused);
-        Time.timeScale = game_paused ? 0 : 1;
-    }*/
     public void restartScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
