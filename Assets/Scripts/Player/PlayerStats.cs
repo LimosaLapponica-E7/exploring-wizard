@@ -107,7 +107,7 @@ public class PlayerStats : MonoBehaviour
         if (health <= 0)
         {
             Player.SetActive(false);
-            StatUI.GetComponent<StatUI>().UponPlayerDeathDisplayUI();
+            StatUI.GetComponent<StatUI>().UponPlayerDeathDisplayUI(true);
         }
     }
     public void IncreaseHealth()

@@ -41,8 +41,11 @@ public class StatUI : MonoBehaviour
         {
             game_paused = !game_paused;
             Time.timeScale = game_paused ? 0 : 1;
-            UponPlayerDeathDisplayUI();
-        }
+            if (game_paused)
+                UponPlayerDeathDisplayUI(false);
+            else
+                uponDeathUI.SetActive(false);
+        }   
     }
 
     public void UpdateLevelNumber()
@@ -94,11 +97,11 @@ public class StatUI : MonoBehaviour
         return playerLevel;
     }
 
-    public void UponPlayerDeathDisplayUI()
+    public void UponPlayerDeathDisplayUI(bool displayRestart)
     {
         enemiesKilled.text = "Enemies Defeated: " + getEnemyDefeatCount();;
-        uponDeathUI.SetActive(game_paused);
-        restartButton.SetActive(game_paused);
+        uponDeathUI.SetActive(true);
+        restartButton.SetActive(displayRestart);
     }
 
 /*    private void SetUIActive(bool game_paused)

@@ -9,11 +9,6 @@ public class BombUI : MonoBehaviour
     [SerializeField] private TMP_Text bombCounter;
     [SerializeField] private TMP_Text goldNumber;
 
-    private void Update()
-        {
-
-        }
-
     public void UpdateLevelNumber(float count)
     {
         levelNumber.text = "Level: " + count;
