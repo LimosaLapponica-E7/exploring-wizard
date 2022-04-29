@@ -50,4 +50,4 @@ MonoBehaviour:
   driveFactor: 9.2
   maxSpeed: 2.75
   neighborRadius: 1.12
-  avoidanceRadiusMultiplier: 0.072
+  avoidanceRadiusMultiplier: 0.049

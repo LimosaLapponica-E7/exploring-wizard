@@ -81,7 +81,7 @@ public class FlockingManager : MonoBehaviour
             if (GameObject.Find("Player"))
             {
                 float toPlayer = Vector2.Distance(GameObject.Find("Player").transform.position, gameObject.transform.position);
-                if (toPlayer > 13)
+                if (toPlayer > 21)
                 {
                     Destroy(gameObject);
                 }
