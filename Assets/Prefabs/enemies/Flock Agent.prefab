@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1506548610471330698}
   - component: {fileID: 6053003193003967466}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 6451715808457101392}
   - component: {fileID: 82349952008339334}
   - component: {fileID: 5037469219499273837}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 6319350136398046780}
   - component: {fileID: 8172950091849811810}
   - component: {fileID: 3349601204915657977}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 329402556143097102}
   - component: {fileID: 1345408727320112564}
   - component: {fileID: -4804592857257333708}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Flock Agent
   m_TagString: Bird
   m_Icon: {fileID: 0}
@@ -360,7 +360,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5239441923284166009}
   - component: {fileID: 5239441923284166010}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Flock Agent Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -443,7 +443,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7198975473418709146}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -482,7 +482,7 @@ GameObject:
   - component: {fileID: 6675083622327767494}
   - component: {fileID: 3384938015508581897}
   - component: {fileID: 2898084175413093651}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -641,6 +641,14 @@ PrefabInstance:
     - target: {fileID: 7200011545479492763, guid: 34c22026bc8b15741a565a417003a453, type: 3}
       propertyPath: m_Name
       value: Fill Area
+      objectReference: {fileID: 0}
+    - target: {fileID: 7200011545479492763, guid: 34c22026bc8b15741a565a417003a453, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319221938368252019, guid: 34c22026bc8b15741a565a417003a453, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8103326965471920344, guid: 34c22026bc8b15741a565a417003a453, type: 3}
       propertyPath: m_AnchorMax.x

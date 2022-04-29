@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5228149370842586896}
   - component: {fileID: 5228149370842586897}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Flock
   m_TagString: Bird
   m_Icon: {fileID: 0}
@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flockUnit: {fileID: 1345408727320112564, guid: acad08f973acb5c4da6758930f60ae71, type: 3}
   behavior: {fileID: 11400000, guid: 381f4ab8ea959664fb82b8525ce36f28, type: 2}
-  numUnits: 22
+  numUnits: 14
   driveFactor: 12.7
-  maxSpeed: 3
+  maxSpeed: 1.6
   neighborRadius: 0.7
-  avoidanceRadiusMultiplier: 0.035
+  avoidanceRadiusMultiplier: 0.014
