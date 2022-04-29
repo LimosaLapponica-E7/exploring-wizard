@@ -74,9 +74,14 @@ public class PlayerStats : MonoBehaviour
 
     public void buyBomb()
     {
-        bombNumber++;
-        goldNumber = goldNumber - 10f;
-        updateGoldCount();
+        
+        if (goldNumber >= 10)
+        {
+            bombNumber++;
+            goldNumber = goldNumber - 10f;
+            updateGoldCount();
+        }
+   
     }
 
     public void useBomb()
