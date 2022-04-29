@@ -7,10 +7,6 @@ public class Spell : MonoBehaviour
     public GameObject bomb;
     public GameObject spell;
 
-    public float minDamage;
-    public float maxDamage;
-    
-
     public float projectileForce;
     public float spellForce;
 
@@ -18,7 +14,7 @@ public class Spell : MonoBehaviour
     public GameObject[] explosionAnims;
 
     public float bombForce;
-    public float bombDamage;
+    public int bombDamage;
     public float bombRadius;
     public float bombTimerInSeconds;
 
@@ -31,7 +27,8 @@ public class Spell : MonoBehaviour
     [SerializeField] private AudioSource fireSound;
     [SerializeField] private AudioSource fireInPlaceSound;
 
-    public LayerMask LayerForBombs;
+    public LayerMask enemyLayerForBombs;
+    public LayerMask birdLayerForBombs;
     void Start()
     {
         secondspershot = .50f;
@@ -96,11 +93,6 @@ public class Spell : MonoBehaviour
                 fireInPlaceSound.Play();
                 PlayerStats.instance.useBomb();
             }
-            else
-            {
-                print("Do not have any bombs to fire");
-            }
-
         }
 
         IEnumerator Expire(GameObject toDestroy, float seconds)
@@ -114,10 +106,16 @@ public class Spell : MonoBehaviour
             Vector2 bombLocation = transform.position;
             yield return new WaitForSeconds(timer);
             GameObject explosion = Instantiate(explosionAnims[Random.Range(0, explosionAnims.Length)], (Vector2)bombLocation, Quaternion.identity);
-            Debug.Log("explosion");
-            Collider2D[] objects = Physics2D.OverlapCircleAll(bombLocation, explosionRadius, LayerForBombs);
+            Collider2D[] enemies = Physics2D.OverlapCircleAll(bombLocation, explosionRadius, enemyLayerForBombs);
+            Collider2D[] birds = Physics2D.OverlapCircleAll(bombLocation, explosionRadius, birdLayerForBombs);
             //Instantiate
-            foreach (Collider2D obj in objects)
+            foreach (Collider2D obj in enemies)
+            {
+                Vector2 direction =  (Vector2)obj.transform.position - bombLocation;
+                obj.GetComponent<Rigidbody2D>().AddForce(direction * bombForce);
+                obj.GetComponent<EnemyRecieveDamage>().DealDamage(damage);
+            }
+            foreach (Collider2D obj in birds)
             {
                 Vector2 direction =  (Vector2)obj.transform.position - bombLocation;
                 obj.GetComponent<Rigidbody2D>().AddForce(direction * bombForce);
@@ -135,7 +133,7 @@ public class Spell : MonoBehaviour
     // Called from LevelUp UI
     public void IncreaseAttackSpeed()
     {
-        secondspershot = secondspershot *  .80f;
+        secondspershot = secondspershot * .80f;
         Debug.Log("IncreaseAttackSpeed was called" + secondspershot);
 
     }

@@ -121,7 +121,7 @@ public class PlayerStats : MonoBehaviour
         {
             experience = 0;
             StartCoroutine(FadeOutLevelUp(backgroundMusic
-            [(PlayerStats.instance.playerLevel) % backgroundMusic.Length], 3f));
+            [(PlayerStats.instance.playerLevel) % backgroundMusic.Length], 1.8f));
         }
     }
 
