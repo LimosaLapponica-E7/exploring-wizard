@@ -8,6 +8,7 @@ public class EnemyProjectile : MonoBehaviour
 
     private Transform player;
     private Vector2 target;
+    [SerializeField] private int dealSlimeDamagePoints;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,15 @@ public class EnemyProjectile : MonoBehaviour
             DestroyProjectile();
         }
 
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.tag == "Player")
+            {
+                print("It Working");
+                PlayerStats.instance.dealDamage(dealSlimeDamagePoints);
+                DestroyProjectile();
+            }
+        }
         void DestroyProjectile(){
             Destroy(gameObject);
         }
