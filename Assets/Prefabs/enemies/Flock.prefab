@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flockUnit: {fileID: 1345408727320112564, guid: acad08f973acb5c4da6758930f60ae71, type: 3}
   behavior: {fileID: 11400000, guid: 381f4ab8ea959664fb82b8525ce36f28, type: 2}
-  numUnits: 47
-  driveFactor: 9.7
-  maxSpeed: 2.3
-  neighborRadius: 2.04
-  avoidanceRadiusMultiplier: 0.155
+  numUnits: 32
+  driveFactor: 4.1
+  maxSpeed: 1.3
+  neighborRadius: 1.12
+  avoidanceRadiusMultiplier: 0.057

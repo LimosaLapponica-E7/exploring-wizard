@@ -25,7 +25,6 @@ public class FlockingManager : MonoBehaviour
     public float avoidanceRadiusMultiplier = 0.5f;
 
     
-
     float squareMaxSpeed;
     float squareNeighborRadius;
     float squareAvoidanceRadius;
@@ -75,6 +74,14 @@ public class FlockingManager : MonoBehaviour
                 agents.RemoveAt(i);
                 i--;
             }
+        }
+
+        if (Time.frameCount % 1200 == 0) {
+            float toPlayer = Vector2.Distance(GameObject.Find("Player").transform.position, gameObject.transform.position);
+            if (toPlayer > 13) {
+                Destroy(gameObject);
+            }
+
         }
     }
 
