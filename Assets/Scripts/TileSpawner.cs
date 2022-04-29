@@ -82,7 +82,7 @@ public class TileSpawner : MonoBehaviour
     {
         for (int i = 0; i < populatedTilePos.Count; i++)
         {
-            if ((Vector2.Distance(populatedTilePos[i], player.position)) > (2 * tileSize))
+            if ((Vector2.Distance(populatedTilePos[i], player.position)) > tileSize)
             {
                 destroyObjects(populatedTilePos[i]);
                 populatedTilePos.RemoveAt(i);
