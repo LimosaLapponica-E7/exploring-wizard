@@ -48,8 +48,8 @@ public class StatUI : MonoBehaviour
     public void UpdateLevelNumber()
     {
         playerLevel++;
-        levelNumberUI.text = "" + getPlayerLevel();
-        levelNumber.text = "Level:" + getPlayerLevel();
+        levelNumberUI.text = " " + getPlayerLevel();
+        levelNumber.text = "Level: " + getPlayerLevel();
         Debug.Log("Player Level" + playerLevel);
     }
 
@@ -67,22 +67,22 @@ public class StatUI : MonoBehaviour
     public void UpdateMovementSpeed()
     {
         moveSpeedStat++;
-        movementSpeed.text = "Movement Speed:" + " " + moveSpeedStat;
+        movementSpeed.text = "Movement Speed: " + " " + moveSpeedStat;
     }
     public void UpdateAttackSpeed()
     {
         attackSpeedStat++;
-        movementSpeed.text = "Attack Speed:" + " " + attackSpeedStat++; ;
+        attackSpeed.text = "Attack Speed: " + " " + attackSpeedStat++; ;
     }
     public void UpdateHealth()
     {
         healthStat++;
-        health.text = "Health:" + " " + healthStat;
+        health.text = "Health: " + healthStat;
     }
     public void UpdateDamage()
     {
         damageStat++;
-        movementSpeed.text = "Damage:" + " " + damageStat;
+        movementSpeed.text = "Damage: " + damageStat;
     }
 
     int getEnemyDefeatCount() {
