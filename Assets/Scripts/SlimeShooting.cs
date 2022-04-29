@@ -23,24 +23,34 @@ public class SlimeShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Vector2.Distance(transform.position, player.position) > stoppingDistance)
+        if (player.position != null)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-        } else if (Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
-        {
-            transform.position = this.transform.position;
-        } else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
-        }
+            Vector2 playerPosition = player.position;
+            if (Vector2.Distance(transform.position, playerPosition) > stoppingDistance)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, playerPosition, speed * Time.deltaTime);
+                gameObject.GetComponent<PolygonCollider2D>().enabled = true;
+            }
+            else if (Vector2.Distance(transform.position, playerPosition) < stoppingDistance && Vector2.Distance(transform.position, playerPosition) > retreatDistance)
+            {
+                transform.position = this.transform.position;
+                gameObject.GetComponent<PolygonCollider2D>().enabled = true;
+            }
+            else if (Vector2.Distance(transform.position, playerPosition) < retreatDistance)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, playerPosition, -speed * Time.deltaTime);
+                gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+            }
 
-        if (timeBtwShots <= 0)
-        {
-            Instantiate(projectile, transform.position, Quaternion.identity);
-            timeBtwShots = startTimeBtwShots;
-        } else
-        {
-            timeBtwShots -= Time.deltaTime;
+            if (timeBtwShots <= 0)
+            {
+                Instantiate(projectile, transform.position, Quaternion.identity);
+                timeBtwShots = startTimeBtwShots;
+            }
+            else
+            {
+                timeBtwShots -= Time.deltaTime;
+            }
         }
     }
 }

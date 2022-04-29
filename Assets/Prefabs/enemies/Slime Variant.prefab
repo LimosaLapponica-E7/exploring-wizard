@@ -112,8 +112,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5317045560712821940, guid: 7eaf4b7dc883285418edc82749cb6131, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317045560712821940, guid: 7eaf4b7dc883285418edc82749cb6131, type: 3}
       propertyPath: m_Simulated
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317045560712821940, guid: 7eaf4b7dc883285418edc82749cb6131, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317045560712821940, guid: 7eaf4b7dc883285418edc82749cb6131, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5317045560712821941, guid: 7eaf4b7dc883285418edc82749cb6131, type: 3}
       propertyPath: m_Name

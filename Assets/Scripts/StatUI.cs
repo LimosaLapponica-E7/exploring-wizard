@@ -103,12 +103,12 @@ public class StatUI : MonoBehaviour
         uponDeathUI.SetActive(true);
         restartButton.SetActive(displayRestart);
     }
-
+    
     public void restartScene()
     {
-        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         uponDeathUI.SetActive(false);
         restartButton.SetActive(false);
+        Time.timeScale = 1;
     }
 }

@@ -58,7 +58,7 @@ PrefabInstance:
     - target: {fileID: 5317045560712821936, guid: 7eaf4b7dc883285418edc82749cb6131, type: 3}
       propertyPath: potionDrop
       value: 
-      objectReference: {fileID: 5904649025948215442, guid: bffcdc85c6d54ad4caddff11ade201af, type: 3}
+      objectReference: {fileID: 5904649025948215442, guid: 4e8be836cbb64eecbab3e42c6b8315aa, type: 3}
     - target: {fileID: 5317045560712821936, guid: 7eaf4b7dc883285418edc82749cb6131, type: 3}
       propertyPath: healthBarSlider
       value: 
@@ -73,15 +73,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5317045560712821938, guid: 7eaf4b7dc883285418edc82749cb6131, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5317045560712821938, guid: 7eaf4b7dc883285418edc82749cb6131, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5317045560712821938, guid: 7eaf4b7dc883285418edc82749cb6131, type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5317045560712821938, guid: 7eaf4b7dc883285418edc82749cb6131, type: 3}
       propertyPath: m_LocalPosition.x
@@ -136,8 +136,20 @@ PrefabInstance:
       value: 0.9245283
       objectReference: {fileID: 0}
     - target: {fileID: 5317045560712821940, guid: 7eaf4b7dc883285418edc82749cb6131, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317045560712821940, guid: 7eaf4b7dc883285418edc82749cb6131, type: 3}
       propertyPath: m_Simulated
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317045560712821940, guid: 7eaf4b7dc883285418edc82749cb6131, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317045560712821940, guid: 7eaf4b7dc883285418edc82749cb6131, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5317045560712821941, guid: 7eaf4b7dc883285418edc82749cb6131, type: 3}
       propertyPath: m_Name
@@ -237,7 +249,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0a4cfe8c7629a012abd23e05b8434864, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.584
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -333,10 +345,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75056ed470d1584478ed7fc62252841f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.65
-  stoppingDistance: 1.2
-  retreatDistance: 4
-  startTimeBtwShots: 2
+  speed: 1.8
+  stoppingDistance: 1.75
+  retreatDistance: 3
+  startTimeBtwShots: 3.5
   projectile: {fileID: 5743570707905604558, guid: cc2d6fd0e41326346a35b4c477c822fb, type: 3}
 --- !u!114 &3152512378073226614
 MonoBehaviour:
@@ -350,7 +362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c097b9af4aa92b4fb1fb8967ac5daf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 2.1
 --- !u!1 &6830734204115484611 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3215185165221285969, guid: 7eaf4b7dc883285418edc82749cb6131, type: 3}

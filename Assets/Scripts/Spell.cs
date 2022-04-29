@@ -124,10 +124,7 @@ public class Spell : MonoBehaviour
             Destroy(bomb);
             yield return new WaitForSeconds(5f);
             Destroy(explosion);
-
         }
-
-
     }
 
     // Called from LevelUp UI

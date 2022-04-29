@@ -25,30 +25,19 @@ public class EnemyProjectile : MonoBehaviour
         {
             PlayerStats.instance.dealDamage(dealSlimeDamagePoints);
             EnemyBulletHit.instance.playSound();
-            DestroyProjectile();
         }
     
         if (collision.gameObject.tag == "Obstacle" || collision.gameObject.tag == "Enemy")
-            DestroyProjectile();
+             Destroy(gameObject);
     }
     // Update is called once per frame
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
-
-
         if (transform.position.x == target.x && transform.position.y == target.y)
         {
-            DestroyProjectile();
+             Destroy(gameObject);
         }
-
-    }
-
-
-
-    public void DestroyProjectile()
-    {
-        Destroy(gameObject);
     }
 }

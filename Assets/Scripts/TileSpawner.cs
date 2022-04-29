@@ -25,9 +25,10 @@ public class TileSpawner : MonoBehaviour
         {
             if (Vector2.Distance(currentTilePos, player.position) > tileSize / 2 - 12)
             {
-                currentTilePos = getCurrentTile(player.position);
-                float angle = Mathf.Atan2(player.position.y - currentTilePos.y,
-                player.position.x - currentTilePos.x);
+                Vector2 playerPosition = player.position;
+                currentTilePos = getCurrentTile(playerPosition);
+                float angle = Mathf.Atan2(playerPosition.y - currentTilePos.y,
+                playerPosition.x - currentTilePos.x);
                 if (angle < 0) angle += 2 * Mathf.PI; // Deal with positive angles
 
                 /* Check 8 positions surrounding the square (45 degrees apart).
