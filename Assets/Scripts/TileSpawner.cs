@@ -82,7 +82,7 @@ public class TileSpawner : MonoBehaviour
     {
         for (int i = 0; i < populatedTilePos.Count; i++)
         {
-            if ((Vector2.Distance(populatedTilePos[i], player.position)) > 2 * tileSize)
+            if ((Vector2.Distance(populatedTilePos[i], player.position)) > (2 * tileSize))
             {
                 destroyObjects(populatedTilePos[i]);
                 populatedTilePos.RemoveAt(i);
@@ -97,7 +97,6 @@ public class TileSpawner : MonoBehaviour
         Collider2D[] hitColliders = Physics2D.OverlapBoxAll(blastZone, new Vector2(tileSize, tileSize), 0f);
 
         // Destroy each item in the array
-        print("Destroyed item num " + hitColliders.Length);
         for (int i = 0; i < hitColliders.Length; i++)
             Destroy(hitColliders[i].gameObject);
     }
@@ -150,7 +149,6 @@ public class TileSpawner : MonoBehaviour
     void AddNewTile(Vector2 pos)
     {
         int landscapeIndex = PlayerStats.instance.playerLevel % tileTypes.Length;
-        print(landscapeIndex);
         GameObject tileType = tileTypes[landscapeIndex];
         GameObject newTile = Instantiate(tileType, pos, Quaternion.identity);
         // Change tile size so that it is a tileSize * tileSize square.
