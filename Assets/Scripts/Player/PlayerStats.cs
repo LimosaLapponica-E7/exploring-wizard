@@ -29,10 +29,12 @@ public class PlayerStats : MonoBehaviour
     public GameObject StatUI;
     public GameObject BombUI;
     public GameObject LevelUpUI;
+    public AudioSource[] backgroundMusic;
 
     AudioSource LevelupSound;
     void Start()
     {
+        backgroundMusic[0].Play();
         goldNumber = 0;
         experience = 0;
         health = maxHealth;
@@ -93,7 +95,6 @@ public class PlayerStats : MonoBehaviour
         StatUI.GetComponent<StatUI>().UpdateGoldNumber(goldNumber);
         BombUI.GetComponent<BombUI>().UpdateGold(goldNumber);
         BombUI.GetComponent<BombUI>().UpdateBombNumber(bombNumber);
-
     }
 
     private void CheckDeath()
@@ -113,18 +114,37 @@ public class PlayerStats : MonoBehaviour
     {
         if (experience >= maxExperience)
         {
-            StatUI.GetComponent<StatUI>().UpdateLevelNumber();
-            LevelUpUI.GetComponent<LevelUpUI>().ShowLevelUpUI();
             experience = 0;
-            maxExperience = maxExperience * 1.25f;
-            playerLevel++;
-            BombUI.GetComponent<BombUI>().UpdateLevelNumber(playerLevel);
-            bombNumber++;
-            updateGoldCount();
-            LevelUpSound.Play();
-
+            StartCoroutine(FadeOutLevelUp(backgroundMusic
+            [(PlayerStats.instance.playerLevel) % backgroundMusic.Length], 3f));
         }
     }
+
+    // Based on https://forum.unity.com/threads/fade-out-audio-source.335031/
+    IEnumerator FadeOutLevelUp(AudioSource music, float FadeTime)
+    {
+        float startVolume = music.volume;
+
+        while (music.volume > 0)
+        {
+            music.volume -= startVolume * Time.deltaTime / FadeTime;
+            yield return null;
+        }
+
+        music.Stop();
+        music.volume = startVolume;
+        LevelUpSound.Play();
+        StatUI.GetComponent<StatUI>().UpdateLevelNumber();
+        LevelUpUI.GetComponent<LevelUpUI>().ShowLevelUpUI();
+        maxExperience = maxExperience * 1.25f;
+        playerLevel++;
+        BombUI.GetComponent<BombUI>().UpdateLevelNumber(playerLevel);
+        bombNumber++;
+        updateGoldCount();
+        backgroundMusic[PlayerStats.instance.playerLevel % backgroundMusic.Length].Play();
+    }
+
+
 
     private float CalculateHealthPercentage()
     {
