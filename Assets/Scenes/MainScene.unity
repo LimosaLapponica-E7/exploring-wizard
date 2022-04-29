@@ -1561,7 +1561,7 @@ GameObject:
   - component: {fileID: 660504550}
   - component: {fileID: 660504549}
   m_Layer: 5
-  m_Name: Movement Speed
+  m_Name: Movement Speed Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1649,7 +1649,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -2984,10 +2984,10 @@ MonoBehaviour:
   levelNumber: {fileID: 1275934218}
   gold: {fileID: 1248440833}
   enemiesKilled: {fileID: 315619583}
-  movementSpeed: {fileID: 0}
-  attackSpeed: {fileID: 0}
-  health: {fileID: 0}
-  damage: {fileID: 0}
+  movementSpeed: {fileID: 660504549}
+  attackSpeed: {fileID: 1311085555}
+  health: {fileID: 2108871389}
+  damage: {fileID: 1269974030}
   restartButton: {fileID: 737636314}
   uponDeathUI: {fileID: 1039888918}
   playerHealthBar: {fileID: 1913771531}
@@ -3774,7 +3774,7 @@ GameObject:
   - component: {fileID: 1269974031}
   - component: {fileID: 1269974030}
   m_Layer: 5
-  m_Name: Increase Damage
+  m_Name: ' Damage Text'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4366,7 +4366,7 @@ GameObject:
   - component: {fileID: 1311085556}
   - component: {fileID: 1311085555}
   m_Layer: 5
-  m_Name: Attack Speed
+  m_Name: Attack Speed Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4522,7 +4522,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 126.5, y: -12}
+  m_AnchoredPosition: {x: 113, y: -12}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1333559243
@@ -5333,7 +5333,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 23.380037, y: 238.45}
+  m_AnchoredPosition: {x: 23.17, y: 238.45}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1718518387
@@ -6472,7 +6472,7 @@ GameObject:
   - component: {fileID: 2108871390}
   - component: {fileID: 2108871389}
   m_Layer: 5
-  m_Name: Increase Health
+  m_Name: ' Health Text'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
