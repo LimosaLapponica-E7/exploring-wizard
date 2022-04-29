@@ -288,6 +288,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1639589212}
+  - {fileID: 651909222}
   m_Father: {fileID: 917391531}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4494,7 +4495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flock: {fileID: 5228149370842586898, guid: 78ed8534eec59064fa16f05d270a91b2, type: 3}
-  flockRate: 4
+  flockRate: 5
   player: {fileID: 1295754191}
   minDistFromPlayer: 9
   maxDistFromPlayer: 15
@@ -4513,8 +4514,8 @@ MonoBehaviour:
   enemy: {fileID: 4295578118190388007, guid: 7349dcd866352fc43ab95b37ace47f46, type: 3}
   enemyRate: 5
   player: {fileID: 1295754191}
-  minDistFromPlayer: 10
-  maxDistFromPlayer: 20
+  minDistFromPlayer: 9
+  maxDistFromPlayer: 15
 --- !u!1001 &1323551677
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5416,7 +5417,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2076758625}
   m_Father: {fileID: 40801728}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6899,7 +6901,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1639589212}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

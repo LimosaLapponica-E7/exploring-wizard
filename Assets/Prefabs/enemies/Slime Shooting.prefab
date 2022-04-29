@@ -345,8 +345,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75056ed470d1584478ed7fc62252841f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.8
-  stoppingDistance: 1.75
+  speed: 1.7
+  stoppingDistance: 0.5
   retreatDistance: 3
   startTimeBtwShots: 3.5
   projectile: {fileID: 5743570707905604558, guid: cc2d6fd0e41326346a35b4c477c822fb, type: 3}
@@ -362,7 +362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c097b9af4aa92b4fb1fb8967ac5daf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2.1
+  moveSpeed: 1.8
 --- !u!1 &6830734204115484611 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3215185165221285969, guid: 7eaf4b7dc883285418edc82749cb6131, type: 3}
