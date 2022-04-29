@@ -31,7 +31,6 @@ public class PlayerStats : MonoBehaviour
     public GameObject LevelUpUI;
     public AudioSource[] backgroundMusic;
 
-    AudioSource LevelupSound;
     void Start()
     {
         backgroundMusic[0].Play();
