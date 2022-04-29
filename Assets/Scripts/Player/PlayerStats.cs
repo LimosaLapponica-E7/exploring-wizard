@@ -147,13 +147,10 @@ public class PlayerStats : MonoBehaviour
         backgroundMusic[PlayerStats.instance.playerLevel % backgroundMusic.Length].Play();
     }
 
-
-
     private float CalculateHealthPercentage()
     {
         return (health / maxHealth);
     }
-
 
     public void addExperience(float ep)
     {

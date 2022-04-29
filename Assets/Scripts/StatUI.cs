@@ -98,7 +98,7 @@ public class StatUI : MonoBehaviour
 
     public void UponPlayerDeathDisplayUI(bool displayRestart)
     {
-        Time.timeScale = true ? 0 : 1;
+        Time.timeScale = 0;
         enemiesKilled.text = "Enemies Defeated: " + getEnemyDefeatCount();;
         uponDeathUI.SetActive(true);
         restartButton.SetActive(displayRestart);
@@ -106,6 +106,7 @@ public class StatUI : MonoBehaviour
 
     public void restartScene()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         uponDeathUI.SetActive(false);
         restartButton.SetActive(false);

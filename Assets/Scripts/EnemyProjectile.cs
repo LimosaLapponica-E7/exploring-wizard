@@ -24,8 +24,12 @@ public class EnemyProjectile : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             PlayerStats.instance.dealDamage(dealSlimeDamagePoints);
+            EnemyBulletHit.instance.playSound();
             DestroyProjectile();
         }
+    
+        if (collision.gameObject.tag == "Obstacle" || collision.gameObject.tag == "Enemy")
+            DestroyProjectile();
     }
     // Update is called once per frame
     void Update()
