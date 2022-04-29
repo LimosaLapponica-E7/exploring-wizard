@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - Health
   - Bird
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX

@@ -4037,6 +4037,7 @@ MonoBehaviour:
   dealSlimeDamagePoints: 3
   dealBirdDamagePoints: 2
   obstacleDamagePoints: 1
+  EnemyProjectile: {fileID: 0}
 --- !u!60 &1295754188
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -4333,7 +4334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 4295578118190388007, guid: 7349dcd866352fc43ab95b37ace47f46, type: 3}
-  enemyRate: 20
+  enemyRate: 10
   player: {fileID: 1295754191}
   minDistFromPlayer: 10
   maxDistFromPlayer: 20

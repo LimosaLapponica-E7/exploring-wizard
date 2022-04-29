@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
 
     public static Player instance;
 
+    public GameObject EnemyProjectile;
+
     void Awake()
     {
         instance = this;
@@ -52,6 +54,12 @@ public class Player : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.tag == "EnemyBullet")
+        {
+            print("Player");
+            PlayerStats.instance.dealDamage(dealSlimeDamagePoints);
+            EnemyProjectile.GetComponent<EnemyProjectile>().DestroyProjectile();
+        }
         if (collision.gameObject.tag == "Slime")
         {
             PlayerStats.instance.dealDamage(dealSlimeDamagePoints);
