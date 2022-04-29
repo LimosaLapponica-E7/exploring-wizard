@@ -280,6 +280,7 @@ GameObject:
   - component: {fileID: 329402556143097102}
   - component: {fileID: 1345408727320112564}
   - component: {fileID: -4804592857257333708}
+  - component: {fileID: -549400051511555116}
   m_Layer: 12
   m_Name: Flock Agent
   m_TagString: Bird
@@ -319,7 +320,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 0.07
 --- !u!114 &1345408727320112564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,6 +351,27 @@ MonoBehaviour:
   healthBarSlider: {fileID: 6053003193003967466}
   lootDrop: {fileID: 6759456009748762491, guid: 3ea867f0e9461c144b65f8bc5ee2fd97, type: 3}
   potionDrop: {fileID: 5904649025948215442, guid: bffcdc85c6d54ad4caddff11ade201af, type: 3}
+--- !u!50 &-549400051511555116
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5239441922129510077}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &5239441923284166008
 GameObject:
   m_ObjectHideFlags: 0

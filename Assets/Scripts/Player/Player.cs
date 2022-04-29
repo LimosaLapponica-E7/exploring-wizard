@@ -72,7 +72,6 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Gold")
         {
             PlayerStats.instance.giveGold(5f);
-            print("This is being called giveGold Player.cs");
             Destroy(gameObject);
         }
         if (collision.gameObject.tag == "Health")

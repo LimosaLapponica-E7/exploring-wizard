@@ -73,8 +73,8 @@ public class TileSpawner : MonoBehaviour
             }
         }
 
-        // Destroy old landscapes every 1000 frames
-        if (Time.frameCount % 1000 == 0)
+        // Destroy old landscapes every 600 frames
+        if (Time.frameCount % 600 == 0)
             destroyDistantObjects();
     }
 
@@ -82,7 +82,7 @@ public class TileSpawner : MonoBehaviour
     {
         for (int i = 0; i < populatedTilePos.Count; i++)
         {
-            if ((Vector2.Distance(populatedTilePos[i], player.position)) > (1.5 * tileSize))
+            if ((Vector2.Distance(populatedTilePos[i], player.position)) > (2 * tileSize))
             {
                 destroyObjects(populatedTilePos[i]);
                 populatedTilePos.RemoveAt(i);
