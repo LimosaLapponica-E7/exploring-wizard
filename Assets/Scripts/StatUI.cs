@@ -40,7 +40,6 @@ public class StatUI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             game_paused = !game_paused;
-            Time.timeScale = game_paused ? 0 : 1;
             if (game_paused)
                 UponPlayerDeathDisplayUI(false);
             else
@@ -98,6 +97,7 @@ public class StatUI : MonoBehaviour
 
     public void UponPlayerDeathDisplayUI(bool displayRestart)
     {
+        Time.timeScale = true ? 0 : 1;
         enemiesKilled.text = "Enemies Defeated: " + getEnemyDefeatCount();;
         uponDeathUI.SetActive(true);
         restartButton.SetActive(displayRestart);

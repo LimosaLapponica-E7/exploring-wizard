@@ -13,8 +13,11 @@ public class EnemyProjectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        target = new Vector2(player.position.x, player.position.y);
+        if (GameObject.FindGameObjectWithTag("Player"))
+        {
+            player = GameObject.FindGameObjectWithTag("Player").transform;
+            target = new Vector2(player.position.x, player.position.y);
+        }
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -28,6 +31,8 @@ public class EnemyProjectile : MonoBehaviour
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
+
+
 
         if (transform.position.x == target.x && transform.position.y == target.y)
         {

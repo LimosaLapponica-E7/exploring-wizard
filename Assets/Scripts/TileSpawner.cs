@@ -21,7 +21,7 @@ public class TileSpawner : MonoBehaviour
     void Update()
     {
         // Run these computations every 15 frames
-        if (Time.frameCount % 15 == 0)
+        if (Time.frameCount % 15 == 0 && player != null)
         {
             if (Vector2.Distance(currentTilePos, player.position) > tileSize / 2 - 12)
             {
