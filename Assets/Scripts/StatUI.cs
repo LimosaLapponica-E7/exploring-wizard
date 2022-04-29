@@ -40,6 +40,7 @@ public class StatUI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             game_paused = !game_paused;
+            Time.timeScale = game_paused ? 0 : 1;
             if (game_paused)
                 UponPlayerDeathDisplayUI(false);
             else
