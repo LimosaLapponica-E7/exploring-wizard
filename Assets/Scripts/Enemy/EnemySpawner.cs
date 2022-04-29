@@ -4,28 +4,17 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] GameObject slime;
-    [SerializeField] float slimeRate; //how many we want to spawn per minute, theoretically can be changed midgame
-
-    [SerializeField] GameObject bird;
+    [SerializeField] GameObject enemy;
+    [SerializeField] float enemyRate; //how many we want to spawn per minute, theoretically can be changed midgame
     [SerializeField] Transform player;
     [SerializeField] private int minDistFromPlayer;
     [SerializeField] private int maxDistFromPlayer;
-    [SerializeField] float birdRate; //flocks per minute, will want to be able to change how many members of the flock we want
+    private float timeSinceEnemy = 0.0f;
 
-    private float timesincebird = 0.0f;
-    private float timesinceslime = 0.0f;
-
-    void spawnSlime()
+    void spawnEnemy()
     {
-        Instantiate(slime, randomSpawn(), Quaternion.identity);
-        timesinceslime = 0;
-    }
-
-    void spawnBird()
-    {
-        Instantiate(bird, randomSpawn(), Quaternion.identity);
-        timesincebird = 0;
+        Instantiate(enemy, randomSpawn(), Quaternion.identity);
+        timeSinceEnemy = 0;
     }
 
     Vector2 randomSpawn()
@@ -34,17 +23,11 @@ public class EnemySpawner : MonoBehaviour
            player.position.y + Random.Range(minDistFromPlayer, maxDistFromPlayer));
     }
 
-    // Update is called once per frame
     void Update()
     {
-        timesinceslime += Time.deltaTime;
-        timesincebird += Time.deltaTime;
+        timeSinceEnemy += Time.deltaTime;
 
-        if (timesinceslime > (60 / slimeRate))
-            spawnSlime();
-
-        if (timesincebird > (60 / birdRate))
-            spawnBird();
-
+        if (timeSinceEnemy > (60 / enemyRate))
+            spawnEnemy();
     }
 }

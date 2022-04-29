@@ -59,7 +59,8 @@ sysinfo.txt
 crashlytics-build.properties
 
 # After installation
-/UserSettings
-/ProjectSettings
-/.vscode
-/Packages
+/UserSettings/*
+/ProjectSettings/*
+/.vscode/*
+/Packages/*
+manifest.json

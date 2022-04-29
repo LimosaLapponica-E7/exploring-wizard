@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5228149370842586896}
   - component: {fileID: 5228149370842586897}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Flock
   m_TagString: Bird
   m_Icon: {fileID: 0}
@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -45,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flockUnit: {fileID: 1345408727320112564, guid: acad08f973acb5c4da6758930f60ae71, type: 3}
   behavior: {fileID: 11400000, guid: 381f4ab8ea959664fb82b8525ce36f28, type: 2}
-  numUnits: 150
-  driveFactor: 10
-  maxSpeed: 3
-  neighborRadius: 1
-  avoidanceRadiusMultiplier: 0.5
+  numUnits: 38
+  driveFactor: 9.2
+  maxSpeed: 2.75
+  neighborRadius: 1.12
+  avoidanceRadiusMultiplier: 0.049

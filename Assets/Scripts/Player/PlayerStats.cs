@@ -29,10 +29,11 @@ public class PlayerStats : MonoBehaviour
     public GameObject StatUI;
     public GameObject BombUI;
     public GameObject LevelUpUI;
+    public AudioSource[] backgroundMusic;
 
-    AudioSource LevelupSound;
     void Start()
     {
+        backgroundMusic[0].Play();
         goldNumber = 0;
         experience = 0;
         health = maxHealth;
@@ -41,6 +42,11 @@ public class PlayerStats : MonoBehaviour
     private void Awake()
     {
         instance = this;
+    }
+
+    void Update()
+    {
+        StatUI.GetComponent<StatUI>().CheckPause();
     }
 
     public void dealDamage(int damage)
@@ -67,11 +73,14 @@ public class PlayerStats : MonoBehaviour
 
     public void buyBomb()
     {
-        bombNumber++;
-        goldNumber = goldNumber - 10f;
-        updateGoldCount();
-        BombUI.GetComponent<BombUI>().UpdateBombNumber(bombNumber);
-        Debug.Log("Bought Bomb");
+        
+        if (goldNumber >= 10)
+        {
+            bombNumber++;
+            goldNumber = goldNumber - 10f;
+            updateGoldCount();
+        }
+   
     }
 
     public void useBomb()
@@ -89,6 +98,7 @@ public class PlayerStats : MonoBehaviour
     {
         StatUI.GetComponent<StatUI>().UpdateGoldNumber(goldNumber);
         BombUI.GetComponent<BombUI>().UpdateGold(goldNumber);
+        BombUI.GetComponent<BombUI>().UpdateBombNumber(bombNumber);
     }
 
     private void CheckDeath()
@@ -96,32 +106,51 @@ public class PlayerStats : MonoBehaviour
         if (health <= 0)
         {
             Player.SetActive(false);
-            StatUI.GetComponent<StatUI>().UponPlayerDeathDisplayUI();
+            StatUI.GetComponent<StatUI>().UponPlayerDeathDisplayUI(true);
         }
     }
     public void IncreaseHealth()
     {
         maxHealth = maxHealth + 5f;
-        Debug.Log("Max Health increased " + maxHealth);
     }
     private void CheckLevelUp()
     {
         if (experience >= maxExperience)
         {
-            StatUI.GetComponent<StatUI>().UpdateLevelNumber();
-            LevelUpUI.GetComponent<LevelUpUI>().ShowLevelUpUI();
             experience = 0;
-            maxExperience = maxExperience * 1.25f;
-            playerLevel++;
-            LevelUpSound.Play();
+            StartCoroutine(FadeOutLevelUp(backgroundMusic
+            [(PlayerStats.instance.playerLevel) % backgroundMusic.Length], 1.8f));
         }
+    }
+
+    // Based on https://forum.unity.com/threads/fade-out-audio-source.335031/
+    IEnumerator FadeOutLevelUp(AudioSource music, float FadeTime)
+    {
+        float startVolume = music.volume;
+
+        while (music.volume > 0)
+        {
+            music.volume -= startVolume * Time.deltaTime / FadeTime;
+            yield return null;
+        }
+
+        music.Stop();
+        music.volume = startVolume;
+        LevelUpSound.Play();
+        StatUI.GetComponent<StatUI>().UpdateLevelNumber();
+        LevelUpUI.GetComponent<LevelUpUI>().ShowLevelUpUI();
+        maxExperience = maxExperience * 1.25f;
+        playerLevel++;
+        BombUI.GetComponent<BombUI>().UpdateLevelNumber(playerLevel);
+        bombNumber++;
+        updateGoldCount();
+        backgroundMusic[PlayerStats.instance.playerLevel % backgroundMusic.Length].Play();
     }
 
     private float CalculateHealthPercentage()
     {
         return (health / maxHealth);
     }
-
 
     public void addExperience(float ep)
     {
@@ -132,10 +161,5 @@ public class PlayerStats : MonoBehaviour
     private float CalculateExperiencePercentage()
     {
         return (experience / maxExperience);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

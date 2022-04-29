@@ -26,6 +26,5 @@ public class Bullet : MonoBehaviour
     {
 
         damage = damage * 1.25f;
-        print(damage + "This is how much damage we are doing currently");
     }
 }

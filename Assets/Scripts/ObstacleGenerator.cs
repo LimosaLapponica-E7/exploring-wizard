@@ -58,7 +58,6 @@ public class ObstacleGenerator : MonoBehaviour
                 // Code for debugging. Avoids infinite loops by giving up on
                 // the mimimum distance requirements after 2000 attempts per obstacle
                 if (limitCount > 20000) {
-                    Debug.Log("Too many obstacles");
                     break;
                 }
 
