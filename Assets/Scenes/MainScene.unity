@@ -2197,7 +2197,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16.7, y: -144}
+  m_AnchoredPosition: {x: 0, y: -150}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &737636316
@@ -4047,6 +4047,7 @@ GameObject:
   - component: {fileID: 1295754194}
   - component: {fileID: 1295754188}
   - component: {fileID: 1295754195}
+  - component: {fileID: 1295754196}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -4355,6 +4356,25 @@ MonoBehaviour:
   flock: {fileID: 5228149370842586898, guid: 78ed8534eec59064fa16f05d270a91b2, type: 3}
   flockRate: 4
   player: {fileID: 1295754191}
+  minDistFromPlayer: 9
+  maxDistFromPlayer: 15
+--- !u!114 &1295754196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295754186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b24f35cbba4f53648803c66db92d9b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 4295578118190388007, guid: 7349dcd866352fc43ab95b37ace47f46, type: 3}
+  enemyRate: 20
+  player: {fileID: 1295754191}
+  minDistFromPlayer: 10
+  maxDistFromPlayer: 20
   minDistFromPlayer: 7
   maxDistFromPlayer: 13
 --- !u!1001 &1323551677
@@ -6455,8 +6475,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -20, y: -23.1}
-  m_SizeDelta: {x: 327.1, y: 323.1}
+  m_AnchoredPosition: {x: 0, y: -20}
+  m_SizeDelta: {x: 350, y: 330}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1965524532
 MonoBehaviour:
