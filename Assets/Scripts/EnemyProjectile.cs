@@ -46,7 +46,15 @@ public class EnemyProjectile : MonoBehaviour
         //if (transform.position.x == target.x && transform.position.y == target.y)
         if(timeSinceInstantiation > 5)
         {
-             Destroy(gameObject);
+            DestroyProjectile();
         }
+
+    }
+
+
+
+    public void DestroyProjectile()
+    {
+        Destroy(gameObject);
     }
 }
