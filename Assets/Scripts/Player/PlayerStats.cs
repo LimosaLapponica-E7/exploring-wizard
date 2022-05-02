@@ -36,8 +36,10 @@ public class PlayerStats : MonoBehaviour
         backgroundMusic[0].Play();
         goldNumber = 0;
         experience = 0;
+        bombNumber = 1;
         health = maxHealth;
         experienceSlider.value = CalculateExperiencePercentage();
+        updateGoldCount();
     }
     private void Awake()
     {
