@@ -8,15 +8,20 @@ public class EnemyProjectile : MonoBehaviour
 
     private Transform player;
     private Vector2 target;
+    private Vector2 movementVector = Vector3.zero;
     [SerializeField] private int dealSlimeDamagePoints;
+    private float timeSinceInstantiation;
 
     // Start is called before the first frame update
     void Start()
     {
+        timeSinceInstantiation = 0;
+        
         if (GameObject.FindGameObjectWithTag("Player"))
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
-            target = new Vector2(player.position.x, player.position.y);
+            movementVector = (player.position - transform.position).normalized * speed;
+            //target = new Vector2(player.position.x, player.position.y);
         }
     }
     void OnCollisionEnter2D(Collision2D collision)
@@ -33,9 +38,13 @@ public class EnemyProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        timeSinceInstantiation += Time.deltaTime;
+        transform.position += (Vector3)movementVector * Time.deltaTime;
+        //movementVector = (target.position - transform.position).normalized * speed;
+        //transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
-        if (transform.position.x == target.x && transform.position.y == target.y)
+        //if (transform.position.x == target.x && transform.position.y == target.y)
+        if(timeSinceInstantiation > 5)
         {
              Destroy(gameObject);
         }
