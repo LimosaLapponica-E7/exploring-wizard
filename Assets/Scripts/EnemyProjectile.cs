@@ -30,6 +30,7 @@ public class EnemyProjectile : MonoBehaviour
         {
             PlayerStats.instance.dealDamage(dealSlimeDamagePoints);
             EnemyBulletHit.instance.playSound();
+            Destroy(gameObject);
         }
     
         if (collision.gameObject.tag == "Obstacle" || collision.gameObject.tag == "Enemy")
@@ -44,7 +45,7 @@ public class EnemyProjectile : MonoBehaviour
         //transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
         //if (transform.position.x == target.x && transform.position.y == target.y)
-        if(timeSinceInstantiation > 5)
+        if(timeSinceInstantiation > 15)
         {
             DestroyProjectile();
         }

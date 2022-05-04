@@ -31,7 +31,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.33, y: 0.33, z: 0.33}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -47,7 +46,6 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -137,8 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5703718a4923697429ccfe461742b46a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  dealSlimeDamagePoints: 3
+  speed: 3
+  dealSlimeDamagePoints: 10
 --- !u!58 &1397567423648988239
 CircleCollider2D:
   m_ObjectHideFlags: 0

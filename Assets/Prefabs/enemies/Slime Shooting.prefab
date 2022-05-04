@@ -434,10 +434,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75056ed470d1584478ed7fc62252841f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1
   stoppingDistance: 7
   retreatDistance: 15
-  startTimeBtwShots: 2
+  startTimeBtwShots: 1
   projectile: {fileID: 5743570707905604558, guid: cc2d6fd0e41326346a35b4c477c822fb, type: 3}
 --- !u!114 &3152512378073226614
 MonoBehaviour:
@@ -452,7 +452,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3215185165221285969, guid: 7eaf4b7dc883285418edc82749cb6131, type: 3}
-  m_PrefabInstance: {fileID: 8238496926504791954}
-  m_PrefabAsset: {fileID: 0}
