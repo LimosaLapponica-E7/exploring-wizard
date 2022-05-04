@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuUI : MonoBehaviour
@@ -22,7 +23,7 @@ public class MainMenuUI : MonoBehaviour
         creditsUI.SetActive(false);
         storyUI.SetActive(false);
 
-/*        startButton.onClick.AddListener(() => LoadingScreen.LoadScene("MainScene"));*/
+        startButton.onClick.AddListener(() => SceneManager.LoadScene("MainScene"));
 
         openCreditsButton.onClick.AddListener(() => { creditsUI.SetActive(true);
             mainScreen.SetActive(false);});
