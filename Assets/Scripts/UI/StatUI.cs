@@ -111,4 +111,11 @@ public class StatUI : MonoBehaviour
         restartButton.SetActive(false);
         Time.timeScale = 1;
     }
+
+    public void returnMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+        uponDeathUI.SetActive(false);
+        Time.timeScale = 1;
+    }
 }
